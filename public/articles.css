@@ -1,0 +1,15 @@
+.articles_title{
+    
+    color: #333;
+    border-bottom: 1px solid black;
+    display: inline;
+}
+.titre{
+    text-align: center;
+}
+
+.articles_item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

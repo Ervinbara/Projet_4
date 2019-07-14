@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="public/php.css">
@@ -15,14 +14,11 @@
       <div class="inner">
        
         <div class="m-left">
-          <h1 class="logo">Jean Forteroche</h1>
+          <h1 class="logo">Espace création de contenu</h1>
         </div>
         
          <div class="m-right">
-            <a href="index.php" class="m-link"><i class="fas fa-home"></i> Accueil</a>
-            <a href="#" class="m-link"><i class="fas fa-newspaper"></i> Plus d'info</a>
-            <a href="#" class="m-link"><i class="fas fa-envelope"></i> Contact</a>
-            <a href="admin/index.php" class="m-link"><i class="fas fa-user"></i> Compte Admin</a>
+            <a href="index.php" class="m-link"><i class="fas fa-home"></i> Retour au menu administration</a>
         </div>
          <div class="m-nav-toggle">
           <span class="m-toggle-icon"> </span>

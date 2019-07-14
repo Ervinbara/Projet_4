@@ -1,36 +1,113 @@
-body
-{
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,400,700&display=swap');
 
-    width: 100%;
+html,body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato';
+}
+
+
+/*Design du header*/
+.menu{
+  width: 100%;
+  height: 66px;
+  background: #3F51B5;
+  line-height: 66px;
+}
+
+.m-left{
+  float:left;
+}
+.m-right{
+  float:right;
+}
+/*Enleve la marge naturelle du h1*/
+.logo{
+   margin: 0;
+  padding: 0;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Roboto';
+  font-weight: 900;
+  font-size: 35px;
+  margin-top: 4%;
+}
+
+.inner{
+  width: 80%;
+  margin: auto;
+}
+
+/*Lien de navigation*/
+.m-link{
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0;
+  margin: 0 10px; /*Espace les liens de navigation*/
+  transition: all 0.3s ease-in-out;
+  border-bottom: 2px solid transparent;
+}
+
+
+.m-link:hover{
+  padding-bottom: 3px;
+  color: white;
+}
+
+
+.m-link i{
+  margin-right: 5px;
+}
+.m-nav-toggle{
+  width: 40px;
+  height: 70px;
+  display:none;
+  align-items: center;
+  float: right;
+  cursor: pointer;
+}
+span.m-toggle-icon, span.m-toggle-icon:before, span.m-toggle-icon:after{
+  display: block;
+  content:"";
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  position: relative;
+  
+}
+span.m-toggle-icon:before{
+  top:10px;
+}
+span.m-toggle-icon:after{
+  top:-12px;
+}
+
+/*.m-right.is-open{
+  transform: translateX(0);
+}*/
+
+/*Media queries menu header*/
+@media only screen and (max-width:880px){
+  .m-right{
+    position: absolute;
+    top: 66px;
+    right: 0;
+    width: 200px;
     height: 100%;
-    font-family: 'Roboto', sans-serif;
-    background-color:#fff;
-
-}
-header{
-    z-index: 10;
-    background-color: #2F2DAD;
-    height: 100px;
-    width: 100%;
-    top : 0;
-    display : flex; 
-    justify-content: space-around;
-    align-items:center;
-
-}
-
-ul
-{
+    background: #3F51B5;
+    /*transform: translateX(100%);*/
+    transition: all 0.3s ease-in-out;
+  }
+  .m-link{
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  .m-nav-toggle{
     display: flex;
-    list-style: none;  
-}
-
-li a {
-    padding: 20px 30px;
-    color: white;
-    text-decoration: none;
-}
-li a:hover{
-  box-shadow: 0 0 10px #000;
-  background: #211818;
+  }
 }
