@@ -3,12 +3,22 @@
     <head>
         <link rel="stylesheet" href="../public/php.css">
         <meta charset="utf-8" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" rel="stylesheet">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ADMINISTRATION DU SITE</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
         <script type="text/javascript" src="../public/tinymce/tinymce.min.js"></script>
         <script type="text/javascript">
           tinyMCE.init({
             selector: 'textarea',
+            setup: function(editor) {
+            editor.on('click', function(e) {
+            console.log('Editor was clicked');
+            });
+            }
+             
           });
         </script>
     </head>    
@@ -27,13 +37,32 @@
                     
                     $title = htmlspecialchars($_POST['title']);
                     $content = htmlspecialchars($_POST['content']);
-                    $req = $db->prepare('UPDATE post SET title = $title, content = $content WHERE id = '.$_GET['id']);
-                    $req->execute(array($_POST['title'], $_POST['content']));
-                }
+                    $req = $db->prepare('UPDATE post SET  title = :title , content = :content WHERE id = '.$_GET['id']);
+                    $req->execute([
+                        'title' => $_POST['title'],
+                        'content' => $_POST['content'],
+                    ]);
+                    $_SESSION['flash']['success'] = 'Votre chapitre à bien été modifié !';
+                    $_SESSION['flash']['error'] = 'Veuillez remplir tout les champs !';
+             }
             }
-            $postManager = new PostManager();
-            $post = $postManager->getPost($_GET['id']);
+           
         ?>
+        
+        
+        <?php
+         $postManager = new PostManager();
+         $post = $postManager->getPost($_GET['id']);
+        ?>
+        <?php
+        if(isset($_SESSION['flash']['success'])){
+            echo "<div class='bg-success'>".$_SESSION['flash']['success'].'</div>';
+        }
+        elseif (isset($_SESSION['flash']['error'])){
+            echo "<div class='text-danger'>".$_SESSION['flash']['error'].'</div>';
+        }
+        ?>
+        
         
         <div class="form_modif">    
             <h3>Modifier le chapitre "<?= $post['title'] ?>"</h3>
@@ -44,5 +73,9 @@
                 </form>
         </div>
         
+        
+        <ul>
+                <li class = "bg-info"><a href="../admin/index.php">Retourner à l'accueil admin ?</a></li>
+           </ul>
     </body>
 </html>

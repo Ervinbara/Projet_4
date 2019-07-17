@@ -4,6 +4,9 @@
     <head>
         <link rel="stylesheet" href="../public/php.css">
         <meta charset="utf-8" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ADMINISTRATION DU SITE</title>
        
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>

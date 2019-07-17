@@ -4,8 +4,12 @@ require 'creation_contenu.php'
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../public/php.css">
+        <link rel="stylesheet" href="public/php.css">
         <meta charset="utf-8" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../public/php.css">
         <title>ADMINISTRATION DU SITE</title>
        
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -18,7 +22,7 @@ require 'creation_contenu.php'
     </head>
     
     <body>
-     <?php include('../public/header.php');?>
+     <?php include('../public/header_content.php');?>
         <form method="POST">
             <input type="text" name="article_titre" placeholder="Titre" /><br />
             <textarea id="post" name="article_contenu" placeholder="Contenu de l'article"></textarea><br />
