@@ -8,6 +8,7 @@
     </head>
         
     <body>
+        
         <?php include('public/header.php');
         if(!isset($_GET['id']))//Si il manque 'id' on redirige l'utilisateur vers la page d'accueil
             {   
@@ -36,7 +37,7 @@
              <a href="admin/?id=<?= $post['id'] ?>">Espace Administration</a>
                 
             <?php endif ?>
-            
+                    
             <h2>Commentaires</h2>
     
             <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post"> 
@@ -54,12 +55,29 @@
             </form>
     
     
-            <?php
+            <?php                    
             while ($comment = $comments->fetch())
             {
             ?>
                 <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-                <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+                <p><?= nl2br(htmlspecialchars($comment['comment'])) ?> et <?= nl2br(htmlspecialchars($comment['id'])) ?></p>
+                
+                <form action="" method="post"> 
+                 <div>
+                    <input type="submit" id="report" name="report" value="Signaler ce commentaire" />
+                </div>
+                </form>
+                
+                <?php
+                 if(isset($_POST['report'])) {
+                        $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
+                        $req = $db->prepare('UPDATE comments SET signaler=:signaler WHERE id = '.$comment['id']);
+                        $req->execute([
+                        'signaler' => 1,
+                    ]);      
+                    }
+                    ?>
+                <br/>
             <?php
             }
             ?>
