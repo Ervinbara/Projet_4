@@ -8,29 +8,32 @@ catch(Exception $e)
 {
         die('Erreur : '.$e->getMessage());
 }
+if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])){
+if(isset($_GET['supprime']) AND !empty($_GET['supprime'])) {
+      $supprime = (int) $_GET['supprime'];
+      $req = $bdd->prepare('DELETE FROM comments WHERE id = ?');
+      $req->execute(array($supprime));
+   }
+}
+$comments = $bdd->query('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE signaler = 1');
 
-$comments = $bdd->query('SELECT author,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE signaler = 1');
 ?>
 
 <!DOCTYPE html>
 <html>
         
     <body>
-         
-        <?php                    
-            while ($comment = $comments->fetch())
-            {
+         <h1>Gestion des commentaires</h1>
+            <h2>Ci-dessous ce trouve les commentaire qui ont été signaler</h2>
+            <ul>
+            <?php while($c = $comments->fetch()) { ?>
+            <li><?= $c['comment_date_fr'] ?> : <?= $c['author'] ?> : <?= $c['comment'] ?> <a href="signaler.php?supprime=<?= $c['id'] ?>">Supprimer</a></li>
+            <?php } ?>
+            </ul>
                 
-            ?>
-                <p><strong><?= htmlspecialchars($comment['author']) ?>
-                <p><?= nl2br(htmlspecialchars($comment['comment'])) ?> le <?= $comment['comment_date_fr'] ?></p>
-                <form action="" method="post"> 
-                 <div>
-                    <input type="submit" id="report" name="report" value="Supprimer ce commentaire" />
-                </div>
-                </form>
+                
+                 
         <?php
-        }
         $comments->closeCursor();
         ?>
     </body>
