@@ -1,15 +1,23 @@
-.articles_title{
+
+.articles_item{
+    margin-bottom: 10px;
+    padding: 15px;
+    /*width: 50%;*/
+    height: 200px;
+    border-radius: 5px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     
-    color: #333;
-    border-bottom: 1px solid black;
-    display: inline;
 }
-.titre{
+.articles{
+   display: flex;
+    /*margin-left: 30%;*/
+    
+}
+.articles_title{
+    font-size: 30px;
     text-align: center;
 }
 
-.articles_item{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}

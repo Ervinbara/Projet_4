@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:100,400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+*{
+    box-sizing: border-box;
+}
 html,body{
   margin: 0;
   padding: 0;
   font-family: 'Lato';
+  /*overflow: hidden;*/
 }
 
 .header{
@@ -68,17 +72,80 @@ html,body{
     text-align: center;
     margin-top: 60px;
 }
-.bouton{
+/*.bouton{
     color: white;
     text-decoration: none;
     padding: 15px 20px;
     background: #3F51B5;
     border-radius: 10px;
-}
+}*/
 .slogan{
     color: #fff;
     font-size: 40px;
     text-transform: uppercase;
     font-family: "Anton";
     font-style: italic;
+}
+
+/*Responsive du menu header*/
+.header_navbar_hamburger{
+    cursor: pointer;
+    width: 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    display: none;
+}
+
+.is-open .header_navbar-menu{
+    transform: translateY(0);
+}
+
+span.menu_hamburger, span.menu_hamburger:before, span.menu_hamburger:after{
+  display: block;
+  content:"";
+  width: 100%;
+  height: 4px;
+  border-radius: 5px;
+  background: #fff;
+  position: relative;
+  
+}
+
+span.menu_hamburger::before{
+  top:10px;
+  height: 4px;
+}
+span.menu_hamburger::after{
+  top:-14px;
+}
+
+@media only screen and (max-width:600px){
+  .header_navbar_hamburger{
+   display:flex;
+   z-index: 1000;
+  }
+  .header_navbar-menu{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%);
+     background: url(../public/snow_mobile.jpg) center no-repeat;
+    background-size: cover;
+    z-index: 0;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+    font-size: 20px;
+    justify-content: center;
+  }
+  .m-link{
+    margin: 30px 0;
+    
+  }
 }

@@ -53,7 +53,13 @@
                     <input type="submit" />
                 </div>
             </form>
-    
+             
+            <!--Message afficher lors du signalement d'un commentaire -->
+            <?php
+            if(isset($_SESSION['flash']['success'])){
+            echo "<div class='bg-success'>".$_SESSION['flash']['success'].'</div>';
+            }
+            ?>
     
             <?php                    
             while ($comment = $comments->fetch())
@@ -74,9 +80,11 @@
                         $req = $db->prepare('UPDATE comments SET signaler=:signaler WHERE id = '.$comment['id']);
                         $req->execute([
                         'signaler' => 1,
-                    ]);      
+                    ]);
+                     $_SESSION['flash']['success'] = 'Commentaire signaler!';    
                     }
                 ?>
+
                 <br/>
             <?php
             }

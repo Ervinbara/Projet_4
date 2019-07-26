@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+ 
     </head>
 <body>
   <div class="header">
@@ -27,13 +27,22 @@
                 <a href="#" class="m-link"><i class="fas fa-newspaper"></i> Plus d'info</a>
                 <a href="#" class="m-link"><i class="fas fa-envelope"></i> Contact</a>
                 <a href="admin/index.php" class="m-link"><i class="fas fa-user"></i> Compte Admin</a>
-            </div> 
+            </div>
+            <div class="header_navbar_hamburger">
+                <span class="menu_hamburger"></span>
+            </div>
         </div>
             <div class="header_slogan">
                 <h1 class="slogan">Billet simple pour l'Alaska</h1>
                 <!--<a href="#" class="bouton">Contactez-moi</a>-->
             </div>
   </div> 
-</div>     
+</div>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="public/app.js"></script>
+  
 </body>
 </html>

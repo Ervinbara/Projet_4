@@ -1,6 +1,8 @@
-jQuery(function($){
-$('m-nav-toggle').click(function(e){
+$('.header_navbar_hamburger').click(function(e){
   e.preventDefault();
-  $('.m-right').toggleClass('is-open');
+  $('.header_navbar').toggleClass('is-open');
 });
-});
+//$(document).ready(function(){
+//            $('.header_navbar_hamburger').click(function(){
+//                $('.header_navbar').toggleClass('is-open'); 
+//            });

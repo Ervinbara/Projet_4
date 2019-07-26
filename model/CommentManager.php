@@ -15,9 +15,47 @@ class CommentManager
         $db = $this->dbConnect();
         $comments = $db->prepare('INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
         $affectedLines = $comments->execute(array($postId, $author, $comment));
-
         return $affectedLines;
     }
+    
+    //Fonction liée aux signalement//
+    
+    //Supp les coms signaler//
+    
+    public function delete_comment($supprime)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM comments WHERE id = ?');
+        $req->execute(array($supprime));
+
+        return $req;
+    }
+    
+    //Affiche les coms signale//
+    
+    public function commentReport()
+    {
+        $db = $this->dbConnect();
+        $comments = $db->query('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE signaler = 1');
+        
+        return $comments;
+    }
+    
+    //Fonction liée à l'édition//
+    public function edit($title,$content)
+    {
+        $db = $this->dbConnect();
+        
+        $title = htmlspecialchars($_POST['title']);
+        $content = htmlspecialchars($_POST['content']);
+        
+        $req = $db->prepare('UPDATE post SET  title = :title , content = :content WHERE id = '.$_GET['id']);
+        $req->execute([
+        'title' => $_POST['title'],
+        'content' => $_POST['content'],
+        ]);
+    }
+
 
     private function dbConnect()
     {

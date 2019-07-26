@@ -3,6 +3,7 @@
 <?php
 require('controller/frontend.php');
 
+
 try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
@@ -32,22 +33,8 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
-        //elseif ($_GET['action'] == 'sendContent') {
-        //    if(isset($_POST['article_titre'], $_POST['article_contenu'])) {
-        //        if(!empty($_POST['article_titre']) AND !empty($_POST['article_contenu'])) {
-        //            sendContent( $_POST['article_titre'], $_POST['article_contenu']);
-        //            $article_titre = htmlspecialchars($_POST['article_titre']);
-        //            $article_contenu = htmlspecialchars($_POST['article_contenu']);
-        //            $message = 'Votre article a bien été posté';
-        //         } else {
-        //            $message = 'Veuillez remplir tous les champs';
-        //         }
-        //      }
-        //      else {
-        //        // Autre exception
-        //        throw new Exception('Veuillez recommencer');
-        //    }
-        //    }
+        
+                    
     }  
             
     else {
@@ -59,6 +46,4 @@ catch(Exception $e) {
     $errorMessage = $e->getMessage();
     require('view/frontend/errorView.php');
 }
-
-
 
