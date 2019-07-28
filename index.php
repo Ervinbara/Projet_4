@@ -34,6 +34,12 @@ try { // On essaie de faire des choses
             }
         }
         
+        elseif ($_GET['action'] == 'deleteComs') {
+            if(isset($_GET['supprime']) AND !empty($_GET['supprime'])) {
+                deleteComs($coms['id']);
+            }
+        }
+        
                     
     }  
             

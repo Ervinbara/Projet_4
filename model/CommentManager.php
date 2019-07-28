@@ -22,11 +22,12 @@ class CommentManager
     
     //Supp les coms signaler//
     
-    public function delete_comment($supprime)
+    public function delete_comment($idcoms)
     {
         $db = $this->dbConnect();
+        $supprime = (int) $_GET['id'];
         $req = $db->prepare('DELETE FROM comments WHERE id = ?');
-        $req->execute(array($supprime));
+        $req->execute(array($idcoms));
 
         return $req;
     }
@@ -40,21 +41,7 @@ class CommentManager
         
         return $comments;
     }
-    
-    //Fonction liée à l'édition//
-    public function edit($title,$content)
-    {
-        $db = $this->dbConnect();
-        
-        $title = htmlspecialchars($_POST['title']);
-        $content = htmlspecialchars($_POST['content']);
-        
-        $req = $db->prepare('UPDATE post SET  title = :title , content = :content WHERE id = '.$_GET['id']);
-        $req->execute([
-        'title' => $_POST['title'],
-        'content' => $_POST['content'],
-        ]);
-    }
+
 
 
     private function dbConnect()

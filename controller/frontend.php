@@ -34,6 +34,15 @@ function post()
     
 }
 
+function deleteComs($id)
+{
+   $commentManager = new CommentManager();
+   $delete = $commentManager->deleteComs($coms['id']);
+   $coms = $commentManager->commentReport();
+   
+   require('admin/signaler.php');
+}
+
 function addComment($postId, $author, $comment)
 {
     $commentManager = new CommentManager();
