@@ -1,5 +1,5 @@
 <?php
-require 'creation_contenu.php'
+//require 'creation_contenu.php'
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,7 @@ require 'creation_contenu.php'
     
     <body>
      <?php include('../public/header_content.php');?>
-        <form method="POST">
+        <form action="../index.php?action=add_post" method="POST">
             <input type="text" name="article_titre" placeholder="Titre" /><br />
             <textarea id="post" name="article_contenu" placeholder="Contenu de l'article"></textarea><br />
             <input type="submit" value="Poster" />

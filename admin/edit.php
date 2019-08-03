@@ -30,20 +30,20 @@
        //    header('location:../index.php');
        // }
         
-            if (isset($_POST) AND !empty($_POST)){
-                if (!empty($_POST['title']) AND !empty($_POST['content'])){
-                    
-                    $title = htmlspecialchars($_POST['title']);
-                    $content = htmlspecialchars($_POST['content']);
-                    $req = $db->prepare('UPDATE post SET  title = :title , content = :content WHERE id = '.$_GET['id']);
-                    $req->execute([
-                        'title' => $_POST['title'],
-                        'content' => $_POST['content'],
-                    ]);
-                    $_SESSION['flash']['success'] = 'Votre chapitre à bien été modifié !';
-                    $_SESSION['flash']['error'] = 'Veuillez remplir tout les champs !';
-             }
-            }
+            //if (isset($_POST) AND !empty($_POST)){
+            //    if (!empty($_POST['title']) AND !empty($_POST['content'])){
+            //        
+            //        $title = htmlspecialchars($_POST['title']);
+            //        $content = htmlspecialchars($_POST['content']);
+            //        $req = $db->prepare('UPDATE post SET  title = :title , content = :content WHERE id = '.$_GET['id']);
+            //        $req->execute([
+            //            'title' => $_POST['title'],
+            //            'content' => $_POST['content'],
+            //        ]);
+            //        $_SESSION['flash']['success'] = 'Votre chapitre à bien été modifié !';
+            //        $_SESSION['flash']['error'] = 'Veuillez remplir tout les champs !';
+            // }
+            //}
            
         ?>
         
@@ -64,7 +64,7 @@
         
         <div class="form_modif">    
             <h3>Modifier le chapitre "<?= $post['title'] ?>"</h3>
-                <form method="POST">
+                <form action="../index.php?action=update_post&amp;postUpdate_id=<?= $post['id'] ?>" method="POST">
                     <input type="text" name="title" value="<?= $post['title'] ?>" /><br />
                     <textarea id="post" name="content" ><?= $post['content'] ?></textarea><br />
                     <input type="submit" value="Modifier" />

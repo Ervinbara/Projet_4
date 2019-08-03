@@ -4,15 +4,37 @@
 // Chargement des classes
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
-//require_once('model/WriteManager.php');
-//
-//function sendContent($article_titre, $article_contenu)
-//{
-//    $writeManager = new WriteManager(); // Création d'un objet
-//    $write = $writeManager->createContent($article_titre, $article_contenu); // Appel d'une fonction de cet objet
-//    require('view/frontend/adminView.php');
-// 
-//}
+
+function update($title,$content,$id_postUpdate)
+{
+   $postManager = new PostManager();
+   $update = $postManager->edit($title,$content,$id_postUpdate);
+}
+
+function deletePost($id_post){
+   $postManager = new PostManager();
+   $deletePost = $postManager->deletePost($id_post);
+}
+
+function addChapter($t,$c)
+{
+      $postManager = new PostManager(); // Création d'un objet
+      $add = $postManager->add($t,$c); // Appel d'une fonction de cet objet
+      
+      //require('admin/index.php');
+      
+}
+
+
+function deleteComs($delete)
+{
+   $commentManager = new CommentManager();
+   $commentManager->delete_comment($delete);
+   
+       
+   require('admin/signaler.php');
+}
+
 function listPosts()
 {
     $postManager = new PostManager(); // Création d'un objet
@@ -34,14 +56,6 @@ function post()
     
 }
 
-function deleteComs($id)
-{
-   $commentManager = new CommentManager();
-   $delete = $commentManager->deleteComs($coms['id']);
-   $coms = $commentManager->commentReport();
-   
-   require('admin/signaler.php');
-}
 
 function addComment($postId, $author, $comment)
 {
@@ -57,16 +71,11 @@ function addComment($postId, $author, $comment)
     }
 }
 
-//function reportComment($postId, $author, $comment)
+//function listpostsReport()
 //{
-//    $commentManager = new CommentManager();
+//    $commentManager = new CommentManager(); // Création d'un objet
+//    $comments = $commentManager->commentReport(); // Appel d'une fonction de cet objet
 //
-//    $affectedLines = $commentManager->reportComment($postId, $author, $comment);
+//    require('admin/signaler.php');
 //
-//    if ($affectedLines === false) {
-//        throw new Exception('Impossible d\'ajouter le commentaire !');
-//    }
-//    else {
-//        echo"Le commentaire à bien été signaler";
-//    }
 //}

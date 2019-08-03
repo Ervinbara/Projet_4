@@ -24,7 +24,7 @@
             </div>
             <div class="header_navbar-menu">
                 <a href="index.php" class="m-link"><i class="fas fa-home"></i> Accueil</a>
-                <a href="#" class="m-link"><i class="fas fa-newspaper"></i> Plus d'info</a>
+                <a href="public/body_bio.php" class="m-link"><i class="fas fa-newspaper"></i> Qui suis-je ?</a>
                 <a href="#" class="m-link"><i class="fas fa-envelope"></i> Contact</a>
                 <a href="admin/index.php" class="m-link"><i class="fas fa-user"></i> Compte Admin</a>
             </div>

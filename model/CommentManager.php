@@ -22,26 +22,25 @@ class CommentManager
     
     //Supp les coms signaler//
     
-    public function delete_comment($idcoms)
+    public function delete_comment($supprime)
     {
         $db = $this->dbConnect();
-        $supprime = (int) $_GET['id'];
         $req = $db->prepare('DELETE FROM comments WHERE id = ?');
-        $req->execute(array($idcoms));
+        $req->execute(array($supprime));
 
         return $req;
     }
     
-    //Affiche les coms signale//
+         //Affiche les coms signale//
     
-    public function commentReport()
-    {
-        $db = $this->dbConnect();
-        $comments = $db->query('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE signaler = 1');
-        
-        return $comments;
-    }
-
+    //public function commentReport()
+    //{
+    //    $db = $this->dbConnect();
+    //    $comments = $db->query('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE signaler = 1');
+    //    
+    //    return $comments;
+    //}
+    
 
 
     private function dbConnect()

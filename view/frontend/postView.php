@@ -4,35 +4,37 @@
     <head>
         <meta charset="utf-8" />
         <title>Blog jean forteroche</title>
-        <link rel="stylesheet" href="public/php.css">
+        <link rel="stylesheet" href="public/nheader.css">
     </head>
         
     <body>
         
-        <?php include('public/header.php');
+        <?php include('public/nheader.php');
         if(!isset($_GET['id']))//Si il manque 'id' on redirige l'utilisateur vers la page d'accueil
             {   
             header('Location: index.php');
             }?>
-            
-        <h1>Mon super blog !</h1>
+        <div class='container'>   
+        <h1>Chapitre</h1>
             <p><a href="index.php">Retour à la liste des billets</a></p>
     
             <div class="news">
                 <h3>
-                    <?= htmlspecialchars($post['title']) ?>
+                    <?= $post['title'] ?>
                     <em>le <?= $post['creation_date_fr'] ?></em>
                 </h3>
                 
-                <p>
-                    <?= nl2br(htmlspecialchars($post['content'])) ?>
-                </p>
+                <div>
+                    <?= $post['content']?>
+                </div>
             </div>
+        
+        
             
             <!-- Si on est connecter en tant qu'admin On accède aux fonctionnalité -->
             <?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) : ?>
              
-             <a href="admin/delete_chap.php?id=<?= $post['id'] ?>">Supprimer</a>
+             <a href="index.php?action=supprimePost&amp;id_delete=<?= $post['id'] ?>">Supprimer</a>
              <a href="admin/edit.php?id=<?= $post['id'] ?>">Modifier</a>
              <a href="admin/?id=<?= $post['id'] ?>">Espace Administration</a>
                 
@@ -73,7 +75,7 @@
                     <input type="submit" id="report" name="report" value="Signaler ce commentaire" />
                 </div>
                 </form>
-                
+             </div>    
                 <?php
                  if(isset($_POST['report'])) {
                         $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');

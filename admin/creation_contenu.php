@@ -3,8 +3,8 @@
    if(isset($_POST['article_titre'], $_POST['article_contenu'])) {
    if(!empty($_POST['article_titre']) AND !empty($_POST['article_contenu'])) {
       
-      $article_titre = htmlspecialchars($_POST['article_titre']);
-      $article_contenu = htmlspecialchars($_POST['article_contenu']);
+      $article_titre = $_POST['article_titre'];
+      $article_contenu = $_POST['article_contenu'];
       $ins = $bdd->prepare('INSERT INTO post (title, content, creation_date) VALUES (?, ?, NOW())');
       $ins->execute(array($article_titre, $article_contenu));
       $message = 'Votre Chapitre a bien été posté';
