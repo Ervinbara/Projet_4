@@ -3,7 +3,8 @@
      <head>
         <meta charset="utf-8" />
         <title>Blog jean forteroche</title>
-        <link rel="stylesheet" href="../public/bio.css">
+        <link rel="stylesheet" href="../public/css/bio.css">
+        <link rel="stylesheet" href="../public/css/footer.css">
        <!-- <link rel="stylesheet" href="public/articles.css">-->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +13,24 @@
     </head>    
     <body>
     
-        <?php include('../public/header_bio.php');?>
-        <div class="container">
-        <p>Jean-Jacques Rousseau est né à Genève le 28 juin 1712. Sa famille était d’origine française. Jean-Jacques, ayant perdu sa mère dès sa naissance, fut d’abord élevé par son père qui lui faisait lire avec lui des romans d’aventures et les Vies de Plutarque. Puis il le confia pendant deux ans à son oncle, M. Bernard, qui le mit en pension chez le pasteur Lambercier, à Bossey. Lenfant revint à Genève et fut placé comme apprenti chez un graveur. Mais un jour, pour ne pas s’exposer à un châtiment mérité, il se rendit chez le curé de Confignon, petit village à deux lieues de Genève, et lui déclara qu’il voulait se convertir au catholicisme. Le curé l’envoya à Annecy chez Mme de Warens, et celle-ci l’adressa à l’hospice des catéchumènes de Turin. Quand il quitte Turin, Jean-Jacques cherche à gagner sa vie ; mais après plusieurs mésaventures, il retourne chez Mme de Warens qui lui donne l’hospitalité à Chambéry, puis à sa maison de campagne des Charmettes. Là, il lit, il regarde la nature, il rêve. En 1740 (il avait vingt-huit an), il accepte une place de précepteur chez M. de Mably, à Lyon. Mais il ne réussit pas. Et enfin, il arrive à Paris, avec quelques louis que lui a donnés Mme de Warens, et un nouveau système de notation musicale qu’il veut présenter à l’Académie des sciences. Il fait la connaissance de Diderot, puis de quelques financiers. On le fait entrer comme secrétaire chez M. de Montaigne qui partait pour l’ambassade de Venise ; au bout d’un an, brouillé avec son chef, il est de retour à Paris. Le voilà qui accepte une autre place de secrétaire, chez Mme Dupin, femme d’un fermier général : c’est le moment mondain de son existence. Il compose de la musique : il semble s’accommoder fort bien des mœurs et des vices de cette société qu’il flétrira bientôt. En 1750, il se révèle brusquement philosophe paradoxal et écrivain de génie en publiant son Discours sur les sciences et les arts, sujet proposé par l’Académie de Dijon. Son succès est tel qu’il se sent forcé de mettre sa vie d’accord avec ses principes. Il rompt avec le monde, se loge dans une mansarde et gagne sa vie en copiant de la musique. Puis il se rend à Genève, où il est reçu comme un grand homme et admis à faire de nouveau profession de calvinisme. En 1755, Rousseau compose un second Discours, sur l’origine de l’inégalité parmi les hommes, et ce discours ne fait pas moins de bruit que le précédent. Il accepte alors de Mme d’Épinay un pavillon situé dans la forêt de Montmorency, l’Ermitage, non loin du château de la Chevrette. Là, au milieu de la nature, il commence trois grands ouvrages : L'Emile, le Contrat social et la Nouvelle Héloïse. Mais bientôt il se croit persécuté par Mme d’Épinay et par tous ceux qui sont reçus chez elle : et il quitte l’Ermitage en décembre 1757. il s’installe alors à Montmorency, d’abord dans le village, puis dans le château du maréchal de Luxembourg. Il y achève la Nouvelle Héloïse et le Contrat social (1761) ; l’Émile, à son tour, va paraître, quand le Parlement fait saisir l’ouvrage et ordonne d’arrêter l’auteur. Rousseau quitte la France, et se réfugie en Suisse ; on le voit successivement à Yverdun, à Motiers, où il s’habille en Arménien, dans l’île Saint-Pierre sur le lac de Bienne. Partout il se fait des ennemis. En 1766, il part pour l’Angleterre, où l’avait appelé le philosophe David Hume. Mais il ne tarde pas à se brouiller avec lui. Il revient en France, et après quelques étapes en Normandie, à Lyon, à Monquin (Dauphiné), il s’installe de nouveau à Paris : il habite alors la rue Plâtrière, qui porte aujourd’hui son nom, et il se remet à copier de la musique. Un de ses admirateurs, M. de Girardin, l’emmena le 20 mai 1778 dans son château d’Ermenonville. C’est là que Jean-Jacques mourut, d’une attaque d’apoplexie, le 2 juillet 1778. On l’enterra, selon son vœu, dans l’île des Peupliers, au milieu du parc de ce château.</p>
+        <?php include('../public/header/header_bio.php');?>
+        <h2 class="titre_bio">Biographie</h2>
+        <div class="container bio_jf">
+            
+            <img class="img_jf" src="../public/images/old.jpg" alt="Moi" />
+            <p style="padding: 20px">
+             Toutes les nouveautés, rien que des nouveautés.Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le haïku
+             Toutes les nouveautés, rien que des nouveautés.Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le haïku
+                          Toutes les nouveautés, rien que des nouveautés.Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le haïku
+             Toutes les nouveautés, rien que des nouveautés.Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le haïku
+             Toutes les nouveautés, rien que des nouveautés.Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le haïku
+             Toutes les nouveautés, rien que des nouveautés.Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le haïku
+
+             <a href="public/body_bio.php">Lire la suite ?</a>
+            </p>
         </div>
+       
+        
+        <?php include('../public/footer.php');?>
     </body>
 </html>

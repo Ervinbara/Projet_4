@@ -11,15 +11,22 @@ function update($title,$content,$id_postUpdate)
    $update = $postManager->edit($title,$content,$id_postUpdate);
 }
 
+function reportComment($id_report){
+   $postManager = new PostManager();
+   $report = $postManager->reportComs($id_report);
+   //header('Location: index.php?action=post&id=' . $id);
+   
+}
+
 function deletePost($id_post){
    $postManager = new PostManager();
    $deletePost = $postManager->deletePost($id_post);
 }
 
-function addChapter($t,$c)
+function addChapter($title,$content)
 {
       $postManager = new PostManager(); // Création d'un objet
-      $add = $postManager->add($t,$c); // Appel d'une fonction de cet objet
+      $add = $postManager->add($title,$content); // Appel d'une fonction de cet objet
       
       //require('admin/index.php');
       
@@ -31,8 +38,6 @@ function deleteComs($delete)
    $commentManager = new CommentManager();
    $commentManager->delete_comment($delete);
    
-       
-   require('admin/signaler.php');
 }
 
 function listPosts()
@@ -41,6 +46,15 @@ function listPosts()
     $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
 
     require('view/frontend/listPostsView.php');
+
+}
+
+function allpostsView()
+{
+    $postManager = new PostManager(); // Création d'un objet
+    $allposts = $postManager->allpostsView(); // Appel d'une fonction de cet objet
+
+    require('view/frontend/allpostView.php');
 
 }
 
@@ -63,19 +77,10 @@ function addComment($postId, $author, $comment)
 
     $affectedLines = $commentManager->postComment($postId, $author, $comment);
 
-    if ($affectedLines === false) {
-        throw new Exception('Impossible d\'ajouter le commentaire !');
-    }
-    else {
-        header('Location: index.php?action=post&id=' . $postId);
-    }
+    //if ($affectedLines === false) {
+    //    throw new Exception('Impossible d\'ajouter le commentaire !');
+    //}
+    //else {
+    //    header('Location: index.php?action=post&id=' . $postId . '&alert=commentaire');
+    //}
 }
-
-//function listpostsReport()
-//{
-//    $commentManager = new CommentManager(); // Création d'un objet
-//    $comments = $commentManager->commentReport(); // Appel d'une fonction de cet objet
-//
-//    require('admin/signaler.php');
-//
-//}

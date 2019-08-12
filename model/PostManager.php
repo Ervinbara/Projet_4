@@ -4,10 +4,19 @@ class PostManager
     public function getPosts()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM post ORDER BY creation_date DESC LIMIT 0, 10');
+        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM post ORDER BY creation_date DESC LIMIT 0, 4');
 
         return $req;
     }
+    
+    public function allpostsView()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM post ORDER BY creation_date');
+
+        return $req;
+    }
+    
     
     public function deletePost($id_post){
         $db = $this->dbConnect();
@@ -39,6 +48,18 @@ class PostManager
             'id' => $id_postUpdate,
             ]);
     }
+    
+     public function reportComs($id_report)
+   {
+         $db = $this->dbConnect();
+         $req = $db->prepare('UPDATE comments SET signaler=:signaler WHERE id =:id');
+         $req->execute([
+         'signaler' => 1,
+         'id' => $id_report,
+     ]);
+    }
+    
+    
 
         
     public function add($title,$content)

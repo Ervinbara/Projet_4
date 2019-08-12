@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../public/php.css">
+        <link rel="stylesheet" href="../public/css/php.css">
         <meta charset="utf-8" />
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" rel="stylesheet">
@@ -21,7 +21,7 @@
         </script>
     </head>    
     <body>
-
+    <?php include('../public/header/header_admin.php');?>
         <?php
         
         require_once '../model/PostManager.php';
@@ -42,8 +42,7 @@
             //        ]);
             //        $_SESSION['flash']['success'] = 'Votre chapitre à bien été modifié !';
             //        $_SESSION['flash']['error'] = 'Veuillez remplir tout les champs !';
-            // }
-            //}
+            
            
         ?>
         
@@ -62,7 +61,7 @@
         ?>
         
         
-        <div class="form_modif">    
+        <div class="container form_modif">    
             <h3>Modifier le chapitre "<?= $post['title'] ?>"</h3>
                 <form action="../index.php?action=update_post&amp;postUpdate_id=<?= $post['id'] ?>" method="POST">
                     <input type="text" name="title" value="<?= $post['title'] ?>" /><br />
@@ -73,7 +72,7 @@
         
         
         <ul>
-                <li class = "bg-info"><a href="../admin/index.php">Retourner à l'accueil admin ?</a></li>
+                <li style="list-style: none"><a href="../admin/index.php">Retourner à l'accueil admin ?</a></li>
            </ul>
     </body>
 </html>

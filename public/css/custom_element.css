@@ -1,0 +1,15 @@
+.bouton_delete_coms{
+    display:block;
+width:150px;
+line-height:50px;
+/*text-align:center;
+vertical-align:middle;*/
+/*background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);
+*/
+color:red;
+text-decoration:none;
+}
+
+.hr{
+    background: black;
+}

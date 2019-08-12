@@ -1,37 +1,45 @@
-<?php
 
-require_once 'database.php';
-$comments = $db->query('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE signaler = 1');
-
-
-?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../public/nheader.css">
+        <link rel="stylesheet" href="../public/css/admin_header.css">
+        <link rel="stylesheet" href="../public/css/custom_element.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        
     </head>
         
     <body>
-        <?php /*$_SESSION['flash']['success'] = 'Commentaire Supprimer !'*/;?>
-        <?php include('../public/nheader.php');?>
+        <?php
+        require_once 'database.php';
+        $comments = $db->query('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE signaler = 1');
+        ?>
+        <?php include('../public/header/header_admin.php');?>
         <div class="container">
          <h1>Gestion des commentaires</h1>
             <h2>Ci-dessous ce trouve les commentaire qui ont été signaler</h2>
+            <div>
+                 <?php
+               //if(isset($_POST['supprime'])  ){
+               //echo '<div>'.$_SESSION['flash']['success'].'</div>';
+               //} ?>
+            </div>
             <ul>
             <?php while($c = $comments->fetch()) { ?>
-            <li><?= $c['comment_date_fr'] ?> : <?= $c['author'] ?> : <?= $c['comment'] ?> <a href="../index.php?action=supprime&amp;comment_id=<?= $c['id'] ?>">Supprimer</a></li>
+            <li><?= $c['comment_date_fr'] ?> : <strong><?= $c['author'] ?></strong> : <?= $c['comment'] ?> <a class="bouton_delete_coms" href="../index.php?action=supprime&amp;comment_id=<?= $c['id'] ?>">Supprimer</a></li>
+            <hr class="hr" />
             <?php } ?>
             </ul>
-            <?php
-        //       if(isset($_SESSION['flash']['success'])){
-        //       echo "<div class='bg-success'>".$_SESSION['flash']['success'].'</div>';
-        //       } ?>
+           
                 
                  
         <?php
         $comments->closeCursor();
         ?>
         </div>
+        
     </body>
 </html>

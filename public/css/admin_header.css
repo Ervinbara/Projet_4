@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:100,400,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
 *{
     box-sizing: border-box;
 }
@@ -12,7 +11,7 @@ html,body{
 }
 
 .header{
-    height: 450px;
+    height: 350px;
     width: 100%;
     background: rgb(62,57,107);
     position: relative;
@@ -24,7 +23,7 @@ html,body{
     position: absolute;
     top: 0;
     left: 0;
-    background: url(../public/old.jpg) center no-repeat;
+    background: url(../images/admin_desk.jpg) center no-repeat;
     background-size: cover;
     z-index: 1;
     opacity: 0.6;
@@ -97,53 +96,11 @@ html,body{
     display: none;
 }
 
-.is-open .header_navbar-menu{
-    transform: translateY(0);
-}
 
-span.menu_hamburger, span.menu_hamburger:before, span.menu_hamburger:after{
-  display: block;
-  content:"";
-  width: 100%;
-  height: 4px;
-  border-radius: 5px;
-  background: #fff;
-  position: relative;
-  
-}
 
-span.menu_hamburger::before{
-  top:10px;
-  height: 4px;
-}
-span.menu_hamburger::after{
-  top:-14px;
-}
+
 
 @media only screen and (max-width:600px){
-  .header_navbar_hamburger{
-   display:flex;
-   z-index: 1000;
-  }
-  .header_navbar-menu{
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vh;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(-100%);
-     background: url(../public/snow_mobile.jpg) center no-repeat;
-    background-size: cover;
-    z-index: 0;
-    opacity: 1;
-    transition: all 0.3s ease-in-out;
-    font-size: 20px;
-    justify-content: center;
-  }
   .m-link{
     margin: 30px 0;
     

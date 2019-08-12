@@ -1,0 +1,52 @@
+
+.articles_item{
+    margin-bottom: 10px;
+    padding: 15px;
+    height: 150px;
+    border-radius: 5px;
+    border: 2px solid black;
+    
+}
+.articles{
+   float: left;
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   background-size: cover;
+   padding: 1%;
+}
+.articles_title{
+    font-size: 30px;
+    text-align: center;
+}
+div.info{
+   margin-top:40%;
+}
+
+.img_jf{
+    width: 150px;
+    height: 150px;
+    margin: auto;
+   
+}
+/*Bloc d'info sur l'auteur*/
+.flotte{
+   display: flex;
+   border: 1px solid black;
+   background-color: aliceblue;
+}
+
+
+
+/*Design page article*/
+div.contenu {
+   border: 1px solid;
+   padding: 15px;
+}
+
+@media only screen and (max-width:750px){
+  .img_jf{
+   display: none;
+    
+  }
+}

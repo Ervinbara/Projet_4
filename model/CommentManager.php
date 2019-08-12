@@ -4,7 +4,7 @@ class CommentManager
     public function getComments($postId)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+        $comments = $db->prepare('SELECT id, author,post_id, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
         $comments->execute(array($postId));
 
         return $comments;
@@ -29,18 +29,7 @@ class CommentManager
         $req->execute(array($supprime));
 
         return $req;
-    }
-    
-         //Affiche les coms signale//
-    
-    //public function commentReport()
-    //{
-    //    $db = $this->dbConnect();
-    //    $comments = $db->query('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE signaler = 1');
-    //    
-    //    return $comments;
-    //}
-    
+    }   
 
 
     private function dbConnect()

@@ -3,36 +3,45 @@
      <head>
         <meta charset="utf-8" />
         <title>Blog jean forteroche</title>
-        <link rel="stylesheet" href="public/nheader.css">
-        <link rel="stylesheet" href="public/articles.css">
-       <!-- <link rel="stylesheet" href="public/articles.css">-->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="public/css/nheader.css">
+        <link rel="stylesheet" href="public/css/articles.css">
+        <link rel="stylesheet" href="public/css/footer.css">
+        
+        <!--CDN Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <!--Fin lien Bootstrap-->
+       
+       <!--meta-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <?php include('public/nheader.php');?>
+        <!--Fin meta -->
+        
+        <?php include('public/header/nheader.php');?>
     </head>    
     <body>
-    <div class="container who">
-        <strong>Qui suis-je ?</strong>
-            <div class="">
-             <figure class="img_service">
-                    
-               </figure> 
-            </div>
-    </div>
-        
+   <div class="container flotte">
+    <img class="img_jf" src="public/images/old.jpg" alt="Moi" />
+       <p style="padding: 20px">
+        Toutes les nouveautés, rien que des nouveautés.Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le haïku
+        Toutes les nouveautés, rien que des nouveautés.Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le haïku
+        <a href="public/body_bio.php">Lire la suite ?</a>
+       </p>
+   </div>  
     <section role="main">
         <div class="container"><!--overflow:auto-->
             <div class="titre">
-                <h2 class="articles_title">Derniers Chapitres</h2>
+                <hr/>
+                <h2 class="articles_title">Dernières parutions</h2>
             </div> 
             <?php
             while ($data = $posts->fetch())
              {
             ?>
             <div class="articles">  
-                <div class="articles_item" style="background: url('public/chap.jpg'); background-size: cover;">
+                <div class="articles_item" style="background: url('public/images/chap.jpg'); background-size: cover;">
                     <h3>
                         <?= htmlspecialchars($data['title']) ?>
                         <em><!--le--> <?php /*$data['creation_date_fr']*/ ?></em>          
@@ -44,17 +53,19 @@
                         </p>
                     </h3>
                 </div>
-            </div>
+            </div>    
             <?php
             }
+            
             $posts->closeCursor();
             ?>
+            <p>Voir l'ensemble des chapitre <em style="font-size: large"><a href="index.php?action=allpostsView">ici</a></em></p>
+            
         </div>
     </section>
     
-    <section>
-        <p class="classname"> coco</p>
-    </section>
+    <?php include('public/footer.php');?>
+
     
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"

@@ -1,0 +1,10 @@
+footer{
+   height: 125px  ;
+   background: #484c68;
+}
+
+footer p{
+   text-align: center;
+   transform: translate(0,215%);
+   color: aliceblue;
+}
