@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,27 +24,10 @@
     <body>
     <?php include('../public/header/header_admin.php');?>
         <?php
-        
+        if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])){
         require_once '../model/PostManager.php';
         require_once 'database.php';
-       //if(!isset($_SESSION['admin']) OR empty($_SESSION['admin'])){
-       //    header('location:../index.php');
-       // }
         
-            //if (isset($_POST) AND !empty($_POST)){
-            //    if (!empty($_POST['title']) AND !empty($_POST['content'])){
-            //        
-            //        $title = htmlspecialchars($_POST['title']);
-            //        $content = htmlspecialchars($_POST['content']);
-            //        $req = $db->prepare('UPDATE post SET  title = :title , content = :content WHERE id = '.$_GET['id']);
-            //        $req->execute([
-            //            'title' => $_POST['title'],
-            //            'content' => $_POST['content'],
-            //        ]);
-            //        $_SESSION['flash']['success'] = 'Votre chapitre à bien été modifié !';
-            //        $_SESSION['flash']['error'] = 'Veuillez remplir tout les champs !';
-            
-           
         ?>
         
         
@@ -72,7 +56,17 @@
         
         
         <ul>
-                <li style="list-style: none"><a href="../admin/index.php">Retourner à l'accueil admin ?</a></li>
-           </ul>
+             <li style="list-style: none"><a href="../admin/index.php">Retourner à l'accueil admin ?</a></li>
+        </ul>
+        
+        <?php
+        }
+        
+        
+        else{
+             header('location:../index.php');
+        }
+        ?>
+        
     </body>
 </html>

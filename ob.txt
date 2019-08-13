@@ -9,3 +9,19 @@ Objectif :
 Sur les conteneur de bio :
 display:flex;
 flex-wrap:wrap;
+
+
+mdp base de données :
+-jean_Forteroche_17
+- http://jean-forteroche.ervinbara-projet.com/
+
+On à :
+Transféré la base de donnée
+Recup les identifiant de la base de donnée de l'hébergeur
+
+Problème :
+      $host_name = 'db5000149202.hosting-data.io';
+         $database = 'dbs144387';
+         $user_name = 'dbu315246';
+         $password = 'jean_Forteroche_17';
+         $db = new PDO('mysql:host=db5000149202.hosting-data.io;dbname=dbs144387;charset=utf8', 'dbu315246', 'jean_Forteroche_17');

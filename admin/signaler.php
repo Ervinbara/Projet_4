@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html>
@@ -14,19 +14,13 @@
         
     <body>
         <?php
+        if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])){
         require_once 'database.php';
         $comments = $db->query('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE signaler = 1');
-        ?>
-        <?php include('../public/header/header_admin.php');?>
+        include('../public/header/header_admin.php');?>
         <div class="container">
          <h1>Gestion des commentaires</h1>
             <h2>Ci-dessous ce trouve les commentaire qui ont été signaler</h2>
-            <div>
-                 <?php
-               //if(isset($_POST['supprime'])  ){
-               //echo '<div>'.$_SESSION['flash']['success'].'</div>';
-               //} ?>
-            </div>
             <ul>
             <?php while($c = $comments->fetch()) { ?>
             <li><?= $c['comment_date_fr'] ?> : <strong><?= $c['author'] ?></strong> : <?= $c['comment'] ?> <a class="bouton_delete_coms" href="../index.php?action=supprime&amp;comment_id=<?= $c['id'] ?>">Supprimer</a></li>
@@ -38,6 +32,12 @@
                  
         <?php
         $comments->closeCursor();
+        }
+  
+        else
+        {
+            header('location:../index.php');
+        }
         ?>
         </div>
         

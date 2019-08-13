@@ -1,6 +1,4 @@
-<?php
-//require 'creation_contenu.php'
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,10 +21,7 @@
     
     <body>
         <?php
-        //require_once '../model/PostManager.php';
-        //require_once 'database.php';
-        //$postManager = new PostManager();
-        //$post = $postManager->getPost($_GET['id']);
+       if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])){
         ?>
       <?php include('../public/header/header_admin.php');?>
      <div class="container">
@@ -39,6 +34,13 @@
         
         <?php if(isset($message)) { echo $message; } ?>
        <li style="list-style: none"><a href="../admin/index.php">Retourner à l'accueil admin ?</a></li>
-     
+       
+       <?php
+       }
+       else{
+        header('location:../index.php');
+       }
+        ?>
+        
     </body>
 </html>
