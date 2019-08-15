@@ -131,7 +131,7 @@ span.menu_hamburger::after{
     top: 0;
     left: 0;
     /*width: 100vh;*/
-    height: 100vh;
+    height: 200px;;
     justify-content: center;
     align-items: center;
     transform: translateY(-100%);
@@ -141,14 +141,10 @@ span.menu_hamburger::after{
     opacity: 1;
     transition: all 0.3s ease-in-out;
     font-size: 20px;
-    justify-content: center;
+    width: inherit; 
   }
   .m-link{
     margin: 30px 0;
     padding: 19px;
-  }
-  .articles{
-    float: none;
-    width: 100%;
   }
 }

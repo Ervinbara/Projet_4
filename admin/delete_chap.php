@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,4 +35,5 @@ session_start();
         else{
              header('location:../index.php');
         }
-        ?> 
+        ?>
+<?php ob_end_flush(); ?>

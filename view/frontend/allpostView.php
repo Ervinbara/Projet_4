@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <title>Blog jean forteroche</title>
         <link rel="stylesheet" href="public/css/nheader.css">
-        <link rel="stylesheet" href="public/css/articles.css">
+        <link rel="stylesheet" href="public/css/allpost.css">
         <link rel="stylesheet" href="public/css/footer.css">
 
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">

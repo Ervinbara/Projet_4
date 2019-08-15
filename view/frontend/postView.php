@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 
 <!DOCTYPE html>
 <html>
@@ -32,13 +33,12 @@
             header('Location: index.php');
             }?>
         <div class='container '>   
-        <h1>Chapitre <?=$post['id'] ?></h1>
+        <h1><?=$post['title'] ?></h1>
             <p><a href="index.php">Retour à la liste des billets</a></p>
     
             <div class="news">
-                <h3>
-                    <?= $post['title'] ?>
-                    <em>le <?= $post['creation_date_fr'] ?></em>
+                <h3>   
+                    <em>Publié le <?= $post['creation_date_fr'] ?></em>
                 </h3>
                 
                 <div class="contenu">
@@ -101,3 +101,4 @@
         
     </body>
 </html>
+<?php ob_end_flush(); ?>

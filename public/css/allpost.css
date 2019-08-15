@@ -8,8 +8,7 @@
     
 }
 .articles{
-   float: left;
-   width: 50%;
+   width: 100%;
    display: flex;
    flex-direction: column;
    background-size: cover;
@@ -48,11 +47,5 @@ div.contenu {
   .img_jf{
    display: none;
     
-  }
-}
-@media only screen and (max-width:769px){
-  .articles{
-    float: none;
-    width: 100%;
   }
 }

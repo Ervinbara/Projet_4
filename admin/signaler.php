@@ -16,7 +16,8 @@
         <?php
         if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])){
         require_once 'database.php';
-        $comments = $db->query('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE signaler = 1');
+        $comments = $db->query('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE signaler = 1');
+        
         include('../public/header/header_admin.php');?>
         <div class="container">
          <h1>Gestion des commentaires</h1>

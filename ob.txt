@@ -1,25 +1,29 @@
-Objectif :
--Nettoyer le code, enlever les doublons de CDN ect...
--Affiné la sécurité du site
--Mettre le site en ligne
--Terminer le css du site, l'adaptation mobile du site
+Problème :
+-Les SESSION ne sont pas chargé
+-le menu hamburger ne fonctionne ps sur la première page
+
+-Mettre en mvc la fonction pour afficher les messages signaler
+-Pareil avec la fonction qui permet de verifié le log de l'admin
+-Nettoyer les doublons
+-Passez au crible tout le code pour vérifier que toutes les balises sont bien reférmer
+-Stylisé les boutons et les lien de modification de suppression(admin)
+-Rendre le site plus beau
+
+-Préparer la soutenance
 
 
 
-Sur les conteneur de bio :
-display:flex;
-flex-wrap:wrap;
 
+
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 mdp base de données :
 -jean_Forteroche_17
 - http://jean-forteroche.ervinbara-projet.com/
 
-On à :
-Transféré la base de donnée
-Recup les identifiant de la base de donnée de l'hébergeur
 
-Problème :
+
       $host_name = 'db5000149202.hosting-data.io';
          $database = 'dbs144387';
          $user_name = 'dbu315246';
