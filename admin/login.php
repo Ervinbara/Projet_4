@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,14 +19,10 @@
             <?php
             if(isset($_POST['username']) AND isset($_POST['password'])){
                 if(!empty($_POST['username']) AND !empty($_POST['password'])) {
-                    $req = $db->prepare('SELECT * FROM users WHERE username = :username  AND password = :password');
                     
-                    $req->execute([
-                        
-                         'username' => $_POST['username'],
-                         'password' => $_POST['password']
-                                   
-                    ]);
+                    require_once('../model/PostManager.php');
+                    $connexion = new PostManager();
+                    $req = $connexion->login($_POST['username'],$_POST['password']);
                     
                     //Attribution des utilisateur à notre variable user
                     $user = $req->fetch();
@@ -36,7 +32,8 @@
                     if($user) {
                         $_SESSION['admin'] = $_POST['username'];
                         $host = $_SERVER['HTTP_HOST'];
-                        header('location: http://'.$host.'/admin/index.php');
+                         header('location: index.php');
+                         //header('location: http://'.$host.'/admin/index.php');
                         //header('location: http://jean-forteroche.ervinbara-projet.com/admin/index.php');
                     }
                     
@@ -65,4 +62,4 @@
           
     </body>
 </html>
-<?php ob_end_flush(); ?>
+<?php /*ob_end_flush();*/ ?>

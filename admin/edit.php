@@ -3,6 +3,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="../public/css/php.css">
+         <link rel="stylesheet" href="../public/css/custom_element.css">
         <meta charset="utf-8" />
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" rel="stylesheet">
@@ -50,7 +51,7 @@
                 <form action="../index.php?action=update_post&amp;postUpdate_id=<?= $post['id'] ?>" method="POST">
                     <input type="text" name="title" value="<?= $post['title'] ?>" /><br />
                     <textarea id="post" name="content" ><?= $post['content'] ?></textarea><br />
-                    <input type="submit" value="Modifier" />
+                    <input class="btn_post_chap" type="submit" value="Modifier" />
                 </form>
         </div>
         

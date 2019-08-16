@@ -51,9 +51,9 @@
             <!-- Si on est connecter en tant qu'admin On accède aux fonctionnalité -->
             <?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) : ?>
              
-             <a href="index.php?action=supprimePost&amp;id_delete=<?= $post['id'] ?>">Supprimer</a>
-             <a href="admin/edit.php?id=<?= $post['id'] ?>">Modifier</a>
-             <a href="admin/?id=<?= $post['id'] ?>">Espace Administration</a>
+             <a class="link_admin" href="index.php?action=supprimePost&amp;id_delete=<?= $post['id'] ?>">Supprimer</a>
+             <a class="link_admin" href="admin/edit.php?id=<?= $post['id'] ?>">Modifier</a>
+             <a class="link_admin" href="admin/?id=<?= $post['id'] ?>">Espace Administration</a>
                 
             <?php endif ?>
                     
@@ -70,7 +70,7 @@
                     <textarea id="comment" name="comment"></textarea>
                 </div>
                 <div>
-                    <input type="submit" />
+                    <input class="btn_post_comment" type="submit" />
                 </div>
             </form>
           </div>
@@ -85,8 +85,9 @@
              
                 <form action="index.php?action=signale_comment&amp;report_id=<?= $comment['id']?>&amp;id_post=<?=$comment['post_id']?>" method="post"> 
                  <div>
-                    <input type="submit" id="report" name="report" value="Signaler ce commentaire" />
+                    <input class="btn_report" type="submit" id="report" name="report" value="Signaler ce commentaire" />
                 </div>
+                 <hr/>
                 </form>
             </div>
             

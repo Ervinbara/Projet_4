@@ -15,19 +15,26 @@
     <body>
         <?php
         if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])){
-        require_once 'database.php';
-        $comments = $db->query('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE signaler = 1');
+            
+        //Appel de la fonction d'affichage des coms signaler
+        
+        require_once('../model/CommentManager.php');
+        $CommentManager = new CommentManager();
+        $comments = $CommentManager->get_comment_report();
         
         include('../public/header/header_admin.php');?>
         <div class="container">
          <h1>Gestion des commentaires</h1>
             <h2>Ci-dessous ce trouve les commentaire qui ont été signaler</h2>
-            <ul>
-            <?php while($c = $comments->fetch()) { ?>
-            <li><?= $c['comment_date_fr'] ?> : <strong><?= $c['author'] ?></strong> : <?= $c['comment'] ?> <a class="bouton_delete_coms" href="../index.php?action=supprime&amp;comment_id=<?= $c['id'] ?>">Supprimer</a></li>
-            <hr class="hr" />
-            <?php } ?>
-            </ul>
+                <ul>
+                <?php while($c = $comments->fetch())
+                { ?>
+                    <li><?= $c['comment_date_fr'] ?> : <strong><?= $c['author'] ?></strong> : <?= $c['comment'] ?> <a class="bouton_delete_coms" href="../index.php?action=supprime&amp;comment_id=<?= $c['id'] ?>">Supprimer</a></li>
+                    <hr class="hr" />
+                <?php 
+                }
+                ?>
+                </ul>
            
                 
                  

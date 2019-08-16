@@ -13,10 +13,9 @@ function update($title,$content,$id_postUpdate)
 
 function reportComment($id_report){
    $postManager = new PostManager();
-   $report = $postManager->reportComs($id_report);
-   //header('Location: index.php?action=post&id=' . $id);
-   
+   $report = $postManager->reportComs($id_report);  
 }
+
 
 function deletePost($id_post){
    $postManager = new PostManager();
@@ -27,8 +26,6 @@ function addChapter($title,$content)
 {
       $postManager = new PostManager(); // Création d'un objet
       $add = $postManager->add($title,$content); // Appel d'une fonction de cet objet
-      
-      //require('admin/index.php');
       
 }
 

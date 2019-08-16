@@ -144,6 +144,9 @@ try { // On essaie de faire des choses
                 
             }
         
+        // elseif ($_GET['action'] == 'admin_comment') {
+        //        get_comment_report();
+        //}
         
         elseif($_GET['action'] == 'allpostsView') {
             allpostsView();

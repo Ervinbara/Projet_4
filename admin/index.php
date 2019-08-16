@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../public/css/php.css">
+        <link rel="stylesheet" href="../public/css/custom_element.css">
         <meta charset="utf-8" />
         <title>ADMINISTRATION DU SITE</title>
     </head>
@@ -14,7 +15,8 @@
         <!--Permet de se connecté seulement si on à rentré les bon id -->
         <?php if(!isset($_SESSION['admin']) AND empty($_SESSION['admin'])) : 
             $host = $_SERVER['HTTP_HOST'];
-            header('location: http://'.$host.'/admin/login.php');
+            header('location: login.php');
+            //header('location: http://'.$host.'/admin/login.php');
             //header('location: http://jean-forteroche.ervinbara-projet.com/admin/login.php');
          endif;
          
@@ -27,11 +29,11 @@
         
         <div class="container">
             <ul>
-             <li><a href="signaler.php">Gérer les commentaires</a></li>
-             <li><a href="creation_chap.php">Ajouter un nouveau chapitre</a></li>
+             <li><a class="btn_admin_choice" href="signaler.php">Gérer les commentaires</a></li>
+             <li><a class="btn_admin_choice" href="creation_chap.php">Ajouter un nouveau chapitre</a></li>
             </ul>
         </div>
 
     </body>
 </html>
-<?php ob_end_flush(); ?>
+<?php /*ob_end_flush();*/ ?>

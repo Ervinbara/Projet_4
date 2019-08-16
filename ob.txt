@@ -2,11 +2,9 @@ Problème :
 -Les SESSION ne sont pas chargé
 -le menu hamburger ne fonctionne ps sur la première page
 
--Mettre en mvc la fonction pour afficher les messages signaler
--Pareil avec la fonction qui permet de verifié le log de l'admin
 -Nettoyer les doublons
 -Passez au crible tout le code pour vérifier que toutes les balises sont bien reférmer
--Stylisé les boutons et les lien de modification de suppression(admin)
+-Changer le nom de l'index admin et l'adapter dans tout le site
 -Rendre le site plus beau
 
 -Préparer la soutenance

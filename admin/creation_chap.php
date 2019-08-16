@@ -3,6 +3,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="../public/css/php.css">
+         <link rel="stylesheet" href="../public/css/custom_element.css">
         <meta charset="utf-8" />
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +29,7 @@
         <form action="../index.php?action=add_post"" method="POST">
             <input type="text" name="article_titre" placeholder="Titre" /><br />
             <textarea id="post" name="article_contenu" placeholder="Contenu de l'article"></textarea><br />
-            <input class="post_button" type="submit" value="Poster" />
+            <input class="btn_post_chap" type="submit" value="Poster" />
         </form>
      </div>
         
