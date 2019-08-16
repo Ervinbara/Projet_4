@@ -12,7 +12,6 @@
     </head>
     
     <body>
-       <?php require_once 'database.php';?>
        <div class="container login">
         <h3>CONNEXION</h3>
        

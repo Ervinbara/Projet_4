@@ -3,7 +3,6 @@
      <head>
         <meta charset="utf-8" />
         <title>Blog jean forteroche</title>
-        <link rel="stylesheet" href="public/css/nheader.css">
         <link rel="stylesheet" href="public/css/allpost.css">
         <link rel="stylesheet" href="public/css/footer.css">
 
@@ -47,11 +46,8 @@
     
     <?php include('public/footer.php');?>
 
-    
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
+
     <script src="/public/app.js"></script>
+    
     </body>
 </html>
