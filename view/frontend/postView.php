@@ -83,7 +83,7 @@
              
                 <form action="index.php?action=signale_comment&amp;report_id=<?= $comment['id']?>&amp;id_post=<?=$comment['post_id']?>" method="post"> 
                  <div>
-                    <input class="btn_report" type="submit" id="report" name="report" value="Signaler ce commentaire" />
+                    <input class="btn_report" type="submit" id="report" name="report" value="Signaler" />
                 </div>
                  <hr/>
                 </form>

@@ -16,7 +16,7 @@
         <?php if(!isset($_SESSION['admin']) AND empty($_SESSION['admin'])) : 
             $host = $_SERVER['HTTP_HOST'];
             header('location: login.php');
-            //header('location: http://'.$host.'/admin/login.php');
+           // header('location: http://'.$host.'/admin/login.php');
             //header('location: http://jean-forteroche.ervinbara-projet.com/admin/login.php');
          endif;
          
@@ -30,10 +30,11 @@
         <div class="container">
             <ul>
              <li><a class="btn_admin_choice" href="signaler.php">Gérer les commentaires</a></li>
-             <li><a class="btn_admin_choice" href="creation_chap.php">Ajouter un nouveau chapitre</a></li>
+             <li><a class="btn_admin_choice" href="creation_chap.php">Ajouter un nouveau chapitre</a></li><br/>
+             <li><a class="btn_logout" href="logout.php">Deconnexion</a>
             </ul>
         </div>
 
     </body>
 </html>
-<?php /*ob_end_flush();*/ ?>
+<?php /*ob_end_flush(); */?>

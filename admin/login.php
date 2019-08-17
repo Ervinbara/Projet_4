@@ -55,7 +55,8 @@
         <form action="login.php" method="POST">
             <input type="text" name="username" placeholder="Identifiant"/><br />
             <input type="password" name="password" placeholder="Mot de passe"/><br />
-            <button>Valider</button>   
+            <button class="btn_valid_id">Valider</button>  <br/><br/>
+            <a class="btn_return_home" href="../index.php">Retour</a>
         </form>
         </div>
           
