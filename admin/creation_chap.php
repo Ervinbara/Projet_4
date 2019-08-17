@@ -34,7 +34,7 @@
      </div>
         
         <?php if(isset($message)) { echo $message; } ?>
-       <li style="list-style: none"><a href="../admin/index.php">Retourner à l'accueil admin ?</a></li>
+       <li style="list-style: none"><a href="../admin/admin_index.php">Retourner à l'accueil admin ?</a></li>
        
        <?php
        }

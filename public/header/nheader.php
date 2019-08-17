@@ -24,7 +24,7 @@
             <div class="header_navbar-menu">
                 <a href="index.php" class="m-link"><i class="fas fa-home"></i> Accueil</a>
                 <a href="public/body_bio.php" class="m-link"><i class="fas fa-newspaper"></i> Info</a>
-                <a href="admin/index.php" class="m-link"><i class="fas fa-user"></i> Admin</a>
+                <a href="admin/admin_index.php" class="m-link"><i class="fas fa-user"></i> Admin</a>
             </div>
             <div class="header_navbar_hamburger">
                 <span class="menu_hamburger"></span>

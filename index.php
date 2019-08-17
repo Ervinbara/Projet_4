@@ -11,7 +11,7 @@ crossorigin="anonymous"></script>
 require('controller/frontend.php');
 require_once('model/message_session.php');
 $session = new Session_message();
-
+//ob_start();
 try { // On essaie de faire des choses
     
     if (isset($_GET['action'])) {
@@ -140,7 +140,7 @@ try { // On essaie de faire des choses
                 $id_postUpdate = $_GET['report_id'];
                 reportComment($id_postUpdate);
                 $id = $_GET['id_post'];
-                header('Location: index.php?action=post&id=' . $id . '&alert=signaler');
+                header('Location: http://jean-forteroche.ervinbara-projet.com/index.php?action=post&id=' . $id . '&alert=signaler');
                 
             }
         
@@ -161,3 +161,4 @@ catch(Exception $e) {
     require('view/frontend/errorView.php');
 }
 
+//ob_end_flush();

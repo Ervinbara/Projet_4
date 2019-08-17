@@ -18,7 +18,7 @@
         </div>
         
          <div class="m-right">
-            <a href="index.php" class="m-link"><i class="fas fa-home"></i> Retour au menu administration</a>
+            <a href="admin_index.php" class="m-link"><i class="fas fa-home"></i> Retour au menu administration</a>
         </div>
          <div class="m-nav-toggle">
           <span class="m-toggle-icon"> </span>

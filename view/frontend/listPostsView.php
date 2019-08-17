@@ -65,6 +65,6 @@
     <?php include('public/footer.php');?>
 
     
-    <script src="/public/app.js"></script>
+    
     </body>
 </html>

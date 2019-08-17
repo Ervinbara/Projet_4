@@ -1,4 +1,5 @@
-<?php /*session_start();*/ ?>
+<?php /*session_start()*/;
+/*ob_start();*/ ?>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +15,6 @@
         
         <link rel="stylesheet" href="public/css/articles.css">
         <link rel="stylesheet" href="public/css/footer.css">
-        <link rel="stylesheet" href="public/css/js.css">
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,8 @@
    <?php
         if(!isset($post['id']))
         //Si il manque 'id' on redirige l'utilisateur vers la page d'accueil
-            {   
+            {
+              
             header('Location: index.php');
             }?>
         <div class='container '>   
@@ -51,7 +52,7 @@
              
              <a class="link_admin" href="index.php?action=supprimePost&amp;id_delete=<?= $post['id'] ?>">Supprimer</a>
              <a class="link_admin" href="admin/edit.php?id=<?= $post['id'] ?>">Modifier</a>
-             <a class="link_admin" href="admin/?id=<?= $post['id'] ?>">Espace Administration</a>
+             <a class="link_admin" href="admin/admin_index.php">Espace Administration</a>
                 
             <?php endif ?>
                     

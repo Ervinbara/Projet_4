@@ -27,7 +27,6 @@
         <?php
         if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])){
         require_once '../model/PostManager.php';
-        require_once 'database.php';
         
         ?>
         
@@ -57,7 +56,7 @@
         
         
         <ul>
-             <li style="list-style: none"><a href="../admin/index.php">Retourner à l'accueil admin ?</a></li>
+             <li style="list-style: none"><a href="../admin/admin_index.php">Retourner à l'accueil admin ?</a></li>
         </ul>
         
         <?php

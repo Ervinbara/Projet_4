@@ -2,9 +2,8 @@ Problème :
 -Les SESSION ne sont pas chargé
 -le menu hamburger ne fonctionne ps sur la première page
 
--Nettoyer les doublons
+
 -Passez au crible tout le code pour vérifier que toutes les balises sont bien reférmer
--Changer le nom de l'index admin et l'adapter dans tout le site
 -Rendre le site plus beau
 
 -Préparer la soutenance

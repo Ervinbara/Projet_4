@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start();
+ob_start();?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,7 +32,7 @@
                     if($user) {
                         $_SESSION['admin'] = $_POST['username'];
                         $host = $_SERVER['HTTP_HOST'];
-                         header('location: index.php');
+                         header('location: admin_index.php');
                          //header('location: http://'.$host.'/admin/index.php');
                         //header('location: http://jean-forteroche.ervinbara-projet.com/admin/index.php');
                     }
@@ -62,4 +63,4 @@
           
     </body>
 </html>
-<?php /*ob_end_flush();*/ ?>
+<?php ob_end_flush(); ?>

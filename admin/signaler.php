@@ -39,13 +39,14 @@
         <?php
         $comments->closeCursor();
         }
-  
+        
+        
         else
         {
             header('location:../index.php');
         }
         ?>
         </div>
-        
+        <li style="list-style: none"><a href="../admin/admin_index.php">Retourner à l'accueil admin ?</a></li>
     </body>
 </html>
