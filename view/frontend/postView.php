@@ -29,8 +29,11 @@ ob_start(); ?>
         if(!isset($post['id']))
         //Si il manque 'id' on redirige l'utilisateur vers la page d'accueil
             {
-              
-            header('Location: index.php');
+              echo '<script language="JavaScript" type="text/javascript">
+                    window.location.replace("index.php");
+                    </script>';
+                exit();
+            //header('Location: index.php');
             }?>
         <div class='container '>   
         <h1><?=$post['title'] ?></h1>

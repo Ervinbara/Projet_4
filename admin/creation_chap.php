@@ -39,7 +39,12 @@
        <?php
        }
        else{
-        header('location:../index.php');
+        
+        echo '<script language="JavaScript" type="text/javascript">
+                    window.location.replace("../index.php");
+                    </script>';
+        exit();
+        //header('location:../index.php');
        }
         ?>
         
