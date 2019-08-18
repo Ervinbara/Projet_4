@@ -65,7 +65,7 @@
         
         else{
             echo '<script language="JavaScript" type="text/javascript">
-            window.location.replace("../index.php");
+            window.location.replace("../admin/login.php");
             </script>';
             exit();
              //header('location:../index.php');

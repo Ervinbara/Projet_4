@@ -31,7 +31,7 @@ ob_start();?>
                     //Vérifie si c'est le bon compte sinon on affiche un message d'erreur
                     if($user) {
                         $_SESSION['admin'] = $_POST['username'];
-                        $host = $_SERVER['HTTP_HOST'];
+                        //$host = $_SERVER['HTTP_HOST'];
                          header('location: admin_index.php');
                          //header('location: http://'.$host.'/admin/index.php');
                         //header('location: http://jean-forteroche.ervinbara-projet.com/admin/index.php');

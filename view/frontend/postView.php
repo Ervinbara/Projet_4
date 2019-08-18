@@ -1,7 +1,6 @@
 <?php
 session_start();
-ob_start(); ?>
-
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -105,4 +104,3 @@ ob_start(); ?>
         
     </body>
 </html>
-<?php ob_end_flush(); ?>

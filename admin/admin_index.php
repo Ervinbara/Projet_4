@@ -15,7 +15,7 @@
     <body>
         <!--Permet de se connecté seulement si on à rentré les bon id -->
         <?php if(!isset($_SESSION['admin']) AND empty($_SESSION['admin'])) : 
-            $host = $_SERVER['HTTP_HOST'];
+            //$host = $_SERVER['HTTP_HOST'];
             header('location: login.php');
            // header('location: http://'.$host.'/admin/login.php');
             //header('location: http://jean-forteroche.ervinbara-projet.com/admin/login.php');

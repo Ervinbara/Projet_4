@@ -1,5 +1,7 @@
 <!--ROUTEUR, appel des controlleurs en fonction de ce que l'on veut-->
-
+<?php
+session_start();
+?>
 <link rel="stylesheet" href="public/css/js.css">
 <script
 src="https://code.jquery.com/jquery-3.3.1.js"
@@ -8,11 +10,11 @@ crossorigin="anonymous"></script>
 <script type="text/javascript" src="public/session.js"></script>
 
 <?php
-  ob_start();  
+  //ob_start();  
 require('controller/frontend.php');
 require_once('model/message_session.php');
 $session = new Session_message();
-header("Status: 301 Moved Permanently", false, 301);
+
 try { // On essaie de faire des choses
 
     if (isset($_GET['action'])) {
@@ -117,7 +119,7 @@ try { // On essaie de faire des choses
         //Méthode de suppression de chapitre
         
         elseif ($_GET['action'] == 'supprimePost') {
-
+            if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])){
                 deletePost($_GET['id_delete']);
                 
                 echo '<script language="JavaScript" type="text/javascript">
@@ -125,9 +127,18 @@ try { // On essaie de faire des choses
                     </script>';
                 exit();
                 //header('location: index.php?action=add_chap&alert=delete_post');
+            }
+                else
+                    {
+                        echo '<script language="JavaScript" type="text/javascript">
+                        window.location.replace("../admin/login.php");
+                        </script>';
+                        exit();
+                        //header('location:../index.php');
+                    }
 
+         
         }
-        
         
         elseif ($_GET['action'] == 'add_post') {
            if(isset($_POST['article_titre'], $_POST['article_contenu'])) {
@@ -148,7 +159,7 @@ try { // On essaie de faire des choses
         }
         
 
-        elseif ($_GET['action'] == 'update_post') {
+        elseif ($_GET['action'] == 'update_post') { 
            if(isset($_POST['title'], $_POST['content'])) {
            if(!empty($_POST['title']) AND !empty($_POST['content'])) {
                 $titre = $_POST['title'];
@@ -164,6 +175,7 @@ try { // On essaie de faire des choses
             
                 }
             }
+        
         }
         
         elseif ($_GET['action'] == 'signale_comment') {
@@ -198,4 +210,4 @@ catch(Exception $e) {
     require('view/frontend/errorView.php');
 }
 
- ob_end_flush();
+ //ob_end_flush();
