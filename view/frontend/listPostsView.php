@@ -64,7 +64,5 @@
     
     <?php include('public/footer.php');?>
 
-    
-    
     </body>
 </html>

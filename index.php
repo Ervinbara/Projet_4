@@ -8,12 +8,13 @@ crossorigin="anonymous"></script>
 <script type="text/javascript" src="public/session.js"></script>
 
 <?php
+  ob_start();  
 require('controller/frontend.php');
 require_once('model/message_session.php');
 $session = new Session_message();
-//ob_start();
+header("Status: 301 Moved Permanently", false, 301);
 try { // On essaie de faire des choses
-    
+
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
             listPosts();
@@ -68,11 +69,20 @@ try { // On essaie de faire des choses
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
-                    header('Location: index.php?action=post&id=' . $_GET['id'] . '&alert=commentaire');
+                    
+                    echo '<script language="JavaScript" type="text/javascript">
+                    window.location.replace("index.php?action=post&id="+"' . $_GET['id'] .' &alert=commentaire");
+                    </script>';
+                    exit();	
+                    //header('Location: index.php?action=post&id=' . $_GET['id'] . '&alert=commentaire');
                 }
                 else {
                     // Autre exception
-                    header('Location: index.php?action=post&id=' . $_GET['id'] . '&alert=missing_field');
+                    echo '<script language="JavaScript" type="text/javascript">
+                    window.location.replace("index.php?action=post&id="+"' . $_GET['id'] .' &alert=missing_field");
+                    </script>';
+                    exit();	
+                    //header('Location: index.php?action=post&id=' . $_GET['id'] . '&alert=missing_field');
                 }
             }
             else {
@@ -93,7 +103,12 @@ try { // On essaie de faire des choses
             
              if(isset($_GET['comment_id']) AND !empty($_GET['comment_id'])) {
                 deleteComs($_GET['comment_id']);
-                header('location:admin/signaler.php?action=deletecomsReport');
+                
+                echo '<script language="JavaScript" type="text/javascript">
+                    window.location.replace("admin/signaler.php?action=deletecomsReport");
+                    </script>';
+                exit();
+                //header('location: admin/signaler.php?action=deletecomsReport');
                  
             }
         }
@@ -104,7 +119,12 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'supprimePost') {
 
                 deletePost($_GET['id_delete']);
-                header('location:index.php?action=add_chap&alert=delete_post');
+                
+                echo '<script language="JavaScript" type="text/javascript">
+                    window.location.replace("index.php?action=add_chap&alert=delete_post");
+                    </script>';
+                exit();
+                //header('location: index.php?action=add_chap&alert=delete_post');
 
         }
         
@@ -116,7 +136,12 @@ try { // On essaie de faire des choses
               $article_titre = $_POST['article_titre'];
               $article_contenu = $_POST['article_contenu'];
                 addChapter($article_titre,$article_contenu);
-                header('location:index.php?action=add_chap&alert=addchap');
+                
+                echo '<script language="JavaScript" type="text/javascript">
+                    window.location.replace("index.php?action=add_chap&alert=addchap");
+                    </script>';
+                exit();
+                //header('location: index.php?action=add_chap&alert=addchap');
              
            }
          }   
@@ -130,7 +155,12 @@ try { // On essaie de faire des choses
                 $contenu = $_POST['content'];
                 $id_postUpdate = $_GET['postUpdate_id'];
                 update($titre,$contenu,$id_postUpdate);
-                header('location:index.php?action=add_chap&alert=updatechap');
+                
+                echo '<script language="JavaScript" type="text/javascript">
+                    window.location.replace("index.php?action=add_chap&alert=updatechap");
+                    </script>';
+                exit();
+                //header('location: index.php?action=add_chap&alert=updatechap');
             
                 }
             }
@@ -140,7 +170,13 @@ try { // On essaie de faire des choses
                 $id_postUpdate = $_GET['report_id'];
                 reportComment($id_postUpdate);
                 $id = $_GET['id_post'];
-                header('Location: http://jean-forteroche.ervinbara-projet.com/index.php?action=post&id=' . $id . '&alert=signaler');
+                
+                echo '<script language="JavaScript" type="text/javascript">
+                    window.location.replace("index.php?action=post&id="+"' . $id .' &alert=signaler");
+                    </script>';
+                exit();
+                
+                //header('Location: index.php?action=post&id=' . $id . '&alert=signaler');
                 
             }
         
@@ -154,6 +190,7 @@ try { // On essaie de faire des choses
     else {
         listPosts();
     }
+   
 }
 
 catch(Exception $e) {
@@ -161,4 +198,4 @@ catch(Exception $e) {
     require('view/frontend/errorView.php');
 }
 
-//ob_end_flush();
+ ob_end_flush();

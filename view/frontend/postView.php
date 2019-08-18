@@ -1,5 +1,6 @@
-<?php /*session_start()*/;
-/*ob_start();*/ ?>
+<?php
+session_start();
+ob_start(); ?>
 
 <!DOCTYPE html>
 <html>
@@ -101,4 +102,4 @@
         
     </body>
 </html>
-<?php /*ob_end_flush();*/ ?>
+<?php ob_end_flush(); ?>
