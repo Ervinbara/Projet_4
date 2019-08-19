@@ -42,7 +42,7 @@ function listPosts()
     $postManager = new PostManager(); // Création d'un objet
     $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
 
-    require('view/frontend/listPostsView.php');
+    require('admin/listPostsView.php');
 
 }
 
@@ -51,7 +51,7 @@ function allpostsView()
     $postManager = new PostManager(); // Création d'un objet
     $allposts = $postManager->allpostsView(); // Appel d'une fonction de cet objet
 
-    require('view/frontend/allpostView.php');
+    require('admin/allpostView.php');
 
 }
 
@@ -63,7 +63,7 @@ function post()
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
 
-    require('view/frontend/postView.php');
+    require('admin/postView.php');
     
 }
 

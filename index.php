@@ -1,5 +1,6 @@
+<?php session_start();?>
 <!--ROUTEUR, appel des controlleurs en fonction de ce que l'on veut-->
-
+<?php ini_set('error_reporting', E_ALL);?>
 <link rel="stylesheet" href="public/css/js.css">
 <script
 src="https://code.jquery.com/jquery-3.3.1.js"
@@ -11,7 +12,7 @@ crossorigin="anonymous"></script>
   //ob_start();  
 require('controller/frontend.php');
 require_once('model/message_session.php');
-$session = new Session_message();
+$session_message = new Session_message();
 
 try { // On essaie de faire des choses
 
@@ -24,18 +25,18 @@ try { // On essaie de faire des choses
         
         elseif ($_GET['action'] == 'add_chap') {
             if(isset($_GET['alert']) && $_GET['alert'] == 'addchap'){
-                    $session->setFlash('Chapitre ajouté !','primary');
-                    $session->flash();
+                    $session_message->setFlash('Chapitre ajouté !','primary');
+                    $session_message->flash();
                     listPosts();
             }
             if(isset($_GET['alert']) && $_GET['alert'] == 'updatechap'){
-                    $session->setFlash('Chapitre modifié !','primary');
-                    $session->flash();
+                    $session_message->setFlash('Chapitre modifié !','primary');
+                    $session_message->flash();
                     listPosts();
             }
             if(isset($_GET['alert']) && $_GET['alert'] == 'delete_post'){
-                    $session->setFlash('Chapitre supprimé !','primary');
-                    $session->flash();
+                    $session_message->setFlash('Chapitre supprimé !','primary');
+                    $session_message->flash();
                     listPosts();
             }
         }
@@ -43,16 +44,16 @@ try { // On essaie de faire des choses
         
         elseif ($_GET['action'] == 'post') {
             if(isset($_GET['alert']) && $_GET['alert'] == 'signaler'){
-                    $session->setFlash('Commentaire signalé !','success'); //Affichage de message flash après le signalement
-                    $session->flash();
+                    $session_message->setFlash('Commentaire signalé !','success'); //Affichage de message flash après le signalement
+                    $session_message->flash();
                 }
             if(isset($_GET['alert']) && $_GET['alert'] == 'commentaire'){
-                    $session->setFlash('Commentaire posté !','success'); //Affichage de message flash après avoir posté un coms
-                    $session->flash();
+                    $session_message->setFlash('Commentaire posté !','success'); //Affichage de message flash après avoir posté un coms
+                    $session_message->flash();
             }
              if(isset($_GET['alert']) && $_GET['alert'] == 'missing_field'){
-                    $session->setFlash('Veuillez remplir tout les champs','danger'); //Affichage de message flash après avoir posté un coms
-                    $session->flash();
+                    $session_message->setFlash('Veuillez remplir tout les champs','danger'); //Affichage de message flash après avoir posté un coms
+                    $session_message->flash();
             }
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
@@ -94,18 +95,13 @@ try { // On essaie de faire des choses
         }
         
         //Méthode de suppression de commentaire signalé
-        
         elseif ($_GET['action'] == 'supprime') {
-             if ($_GET['action'] == 'deletecomsReport') {
-                    $session->setFlash('Commentaire supprimé !','success');
-                    $session->flash();  
-        }
             
              if(isset($_GET['comment_id']) AND !empty($_GET['comment_id'])) {
                 deleteComs($_GET['comment_id']);
                 
                 echo '<script language="JavaScript" type="text/javascript">
-                    window.location.replace("admin/signaler.php?action=deletecomsReport");
+                    window.location.replace("admin/signaler.php");
                     </script>';
                 exit();
                 //header('location: admin/signaler.php?action=deletecomsReport');
@@ -205,7 +201,7 @@ try { // On essaie de faire des choses
 
 catch(Exception $e) {
     $errorMessage = $e->getMessage();
-    require('view/frontend/errorView.php');
+    require('admin/errorView.php');
 }
 
  //ob_end_flush();
