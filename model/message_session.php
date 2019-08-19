@@ -1,10 +1,6 @@
 <?php
 
 class Session_message{
-    //public function __construct(){ //Fonction qui se lance automatiquement
-    //    session_start();
-    //    
-    //}
     
     public function setFlash($message,$type){
         $_SESSION['flash'] = array(

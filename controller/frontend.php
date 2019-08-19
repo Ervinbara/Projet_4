@@ -46,14 +46,6 @@ function listPosts()
 
 }
 
-function allpostsView()
-{
-    $postManager = new PostManager(); // Création d'un objet
-    $allposts = $postManager->allpostsView(); // Appel d'une fonction de cet objet
-
-    require('admin/allpostView.php');
-
-}
 
 function post()
 {

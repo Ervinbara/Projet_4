@@ -1,5 +1,5 @@
 <?php session_start();?>
-<!--ROUTEUR, appel des controlleurs en fonction de ce que l'on veut-->
+
 <?php ini_set('error_reporting', E_ALL);?>
 <link rel="stylesheet" href="public/css/js.css">
 <script
@@ -8,20 +8,16 @@ integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 crossorigin="anonymous"></script>
 <script type="text/javascript" src="public/session.js"></script>
 
-<?php
-  //ob_start();  
+<?php  
 require('controller/frontend.php');
 require_once('model/message_session.php');
 $session_message = new Session_message();
 
-try { // On essaie de faire des choses
-
+try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
             listPosts();
         }
-        
-        //Affichage de message flash après une action suppression,ajout et modification d'un post
         
         elseif ($_GET['action'] == 'add_chap') {
             if(isset($_GET['alert']) && $_GET['alert'] == 'addchap'){
@@ -44,15 +40,15 @@ try { // On essaie de faire des choses
         
         elseif ($_GET['action'] == 'post') {
             if(isset($_GET['alert']) && $_GET['alert'] == 'signaler'){
-                    $session_message->setFlash('Commentaire signalé !','success'); //Affichage de message flash après le signalement
+                    $session_message->setFlash('Commentaire signalé !','success'); 
                     $session_message->flash();
                 }
             if(isset($_GET['alert']) && $_GET['alert'] == 'commentaire'){
-                    $session_message->setFlash('Commentaire posté !','success'); //Affichage de message flash après avoir posté un coms
+                    $session_message->setFlash('Commentaire posté !','success'); 
                     $session_message->flash();
             }
              if(isset($_GET['alert']) && $_GET['alert'] == 'missing_field'){
-                    $session_message->setFlash('Veuillez remplir tout les champs','danger'); //Affichage de message flash après avoir posté un coms
+                    $session_message->setFlash('Veuillez remplir tout les champs','danger'); 
                     $session_message->flash();
             }
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -61,7 +57,6 @@ try { // On essaie de faire des choses
                 
             }
             else {
-                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
@@ -75,26 +70,21 @@ try { // On essaie de faire des choses
                     window.location.replace("index.php?action=post&id="+"' . $_GET['id'] .' &alert=commentaire");
                     </script>';
                     exit();	
-                    //header('Location: index.php?action=post&id=' . $_GET['id'] . '&alert=commentaire');
                 }
                 else {
-                    // Autre exception
                     echo '<script language="JavaScript" type="text/javascript">
                     window.location.replace("index.php?action=post&id="+"' . $_GET['id'] .' &alert=missing_field");
                     </script>';
                     exit();	
-                    //header('Location: index.php?action=post&id=' . $_GET['id'] . '&alert=missing_field');
                 }
             }
             else {
-                // Autre exception
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
             
             
         }
         
-        //Méthode de suppression de commentaire signalé
         elseif ($_GET['action'] == 'supprime') {
             
              if(isset($_GET['comment_id']) AND !empty($_GET['comment_id'])) {
@@ -104,13 +94,11 @@ try { // On essaie de faire des choses
                     window.location.replace("admin/signaler.php");
                     </script>';
                 exit();
-                //header('location: admin/signaler.php?action=deletecomsReport');
+                
                  
             }
         }
        
-        
-        //Méthode de suppression de chapitre
         
         elseif ($_GET['action'] == 'supprimePost') {
             if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])){
@@ -120,7 +108,7 @@ try { // On essaie de faire des choses
                     window.location.replace("index.php?action=add_chap&alert=delete_post");
                     </script>';
                 exit();
-                //header('location: index.php?action=add_chap&alert=delete_post');
+ 
             }
                 else
                     {
@@ -128,7 +116,7 @@ try { // On essaie de faire des choses
                         window.location.replace("../admin/login.php");
                         </script>';
                         exit();
-                        //header('location:../index.php');
+ 
                     }
 
          
@@ -146,7 +134,6 @@ try { // On essaie de faire des choses
                     window.location.replace("index.php?action=add_chap&alert=addchap");
                     </script>';
                 exit();
-                //header('location: index.php?action=add_chap&alert=addchap');
              
            }
          }   
@@ -165,8 +152,7 @@ try { // On essaie de faire des choses
                     window.location.replace("index.php?action=add_chap&alert=updatechap");
                     </script>';
                 exit();
-                //header('location: index.php?action=add_chap&alert=updatechap');
-            
+                  
                 }
             }
         
@@ -182,13 +168,8 @@ try { // On essaie de faire des choses
                     </script>';
                 exit();
                 
-                //header('Location: index.php?action=post&id=' . $id . '&alert=signaler');
-                
+                      
             }
-        
-        elseif($_GET['action'] == 'allpostsView') {
-            allpostsView();
-        }
                 
      } 
         
@@ -203,5 +184,3 @@ catch(Exception $e) {
     $errorMessage = $e->getMessage();
     require('admin/errorView.php');
 }
-
- //ob_end_flush();

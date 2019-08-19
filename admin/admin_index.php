@@ -9,16 +9,15 @@
         <link rel="stylesheet" href="../public/css/php.css">
         <link rel="stylesheet" href="../public/css/custom_element.css">
         <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="../public/css/admin_header.css">
         <title>ADMINISTRATION DU SITE</title>
     </head>
     
     <body>
         <!--Permet de se connecté seulement si on à rentré les bon id -->
         <?php if(!isset($_SESSION['admin']) AND empty($_SESSION['admin'])) : 
-            //$host = $_SERVER['HTTP_HOST'];
             header('location: login.php');
-           // header('location: http://'.$host.'/admin/login.php');
-            //header('location: http://jean-forteroche.ervinbara-projet.com/admin/login.php');
          endif;
          
          

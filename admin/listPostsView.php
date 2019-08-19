@@ -12,7 +12,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <!--Fin lien Bootstrap-->
-       
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
        <!--meta-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,11 +43,9 @@
             <div class="articles">  
                 <div class="articles_item" style="background: url('public/images/chap.jpg'); background-size: cover;">
                     <h3>
-                        <?= htmlspecialchars($data['title']) ?>
-                        <em><!--le--> <?php /*$data['creation_date_fr']*/ ?></em>          
+                        <?= htmlspecialchars($data['title']) ?>         
                         <p>
                             <br />
-                            <?php /*nl2br(htmlspecialchars($data['title']))*/ ?>
                             <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Découvrir</a></em>
                             <br>
                         </p>
@@ -58,7 +57,7 @@
             
             $posts->closeCursor();
             ?>
-            <p>Voir l'ensemble des chapitre <em style="font-size: large"><a href="index.php?action=allpostsView">ici</a></em></p>
+            <p>Voir l'ensemble des chapitre <em style="font-size: large"><a href="admin/allpostView.php">ici</a></em></p>
             
         </div>
     </section>

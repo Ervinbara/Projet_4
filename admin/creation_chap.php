@@ -10,7 +10,8 @@ ob_start();?>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
         <title>ADMINISTRATION DU SITE</title>
        
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -41,11 +42,6 @@ ob_start();?>
        <?php
        }
        else{
-        
-        //echo '<script language="JavaScript" type="text/javascript">
-        //            window.location.replace("../index.php");
-        //            </script>';
-        //exit();
         header('location:../index.php');
        }
         ?>
