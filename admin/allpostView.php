@@ -35,7 +35,7 @@
                         <?= htmlspecialchars($data['title']) ?>        
                         <p>
                             <br />
-                            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Découvrir</a></em>
+                            <em><a href="../index.php?action=post&amp;id=<?= $data['id'] ?>">Découvrir</a></em>
                             <br>
                         </p>
                     </h3>
