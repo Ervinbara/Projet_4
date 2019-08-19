@@ -26,3 +26,7 @@ mdp base de données :
          $user_name = 'dbu315246';
          $password = 'jean_Forteroche_17';
          $db = new PDO('mysql:host=db5000149202.hosting-data.io;dbname=dbs144387;charset=utf8', 'dbu315246', 'jean_Forteroche_17');
+         
+
+
+

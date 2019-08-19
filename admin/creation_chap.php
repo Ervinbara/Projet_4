@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start();
+ob_start();?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,13 +42,14 @@
        }
        else{
         
-        echo '<script language="JavaScript" type="text/javascript">
-                    window.location.replace("../index.php");
-                    </script>';
-        exit();
-        //header('location:../index.php');
+        //echo '<script language="JavaScript" type="text/javascript">
+        //            window.location.replace("../index.php");
+        //            </script>';
+        //exit();
+        header('location:../index.php');
        }
         ?>
         
     </body>
 </html>
+<?php ob_end_flush(); ?>

@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start();
+ob_start();?>
 
 <!DOCTYPE html>
 <html>
@@ -43,14 +44,15 @@
         
         else
         {
-            echo '<script language="JavaScript" type="text/javascript">
-            window.location.replace("../index.php");
-            </script>';
-            exit();
-            //header('location:../index.php');
+            //echo '<script language="JavaScript" type="text/javascript">
+            //window.location.replace("../index.php");
+            //</script>';
+            //exit();
+            header('location:../index.php');
         }
         ?>
         </div>
         <li style="list-style: none"><a href="../admin/admin_index.php">Retourner à l'accueil admin ?</a></li>
     </body>
 </html>
+<?php ob_end_flush(); ?>
