@@ -5,37 +5,6 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
-function update($title,$content,$id_postUpdate)
-{
-   $postManager = new PostManager();
-   $update = $postManager->edit($title,$content,$id_postUpdate);
-}
-
-function reportComment($id_report){
-   $postManager = new PostManager();
-   $report = $postManager->reportComs($id_report);  
-}
-
-
-function deletePost($id_post){
-   $postManager = new PostManager();
-   $deletePost = $postManager->deletePost($id_post);
-}
-
-function addChapter($title,$content)
-{
-      $postManager = new PostManager(); // Création d'un objet
-      $add = $postManager->add($title,$content); // Appel d'une fonction de cet objet
-      
-}
-
-
-function deleteComs($delete)
-{
-   $commentManager = new CommentManager();
-   $commentManager->delete_comment($delete);
-   
-}
 
 function listPosts()
 {
@@ -66,10 +35,9 @@ function addComment($postId, $author, $comment)
 
     $affectedLines = $commentManager->postComment($postId, $author, $comment);
 
-    //if ($affectedLines === false) {
-    //    throw new Exception('Impossible d\'ajouter le commentaire !');
-    //}
-    //else {
-    //    header('Location: index.php?action=post&id=' . $postId . '&alert=commentaire');
-    //}
+}
+
+function reportComment($id_report){
+   $postManager = new PostManager();
+   $report = $postManager->reportComs($id_report);
 }

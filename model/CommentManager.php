@@ -18,26 +18,7 @@ class CommentManager
         return $affectedLines;
     }
     
-    //Fonction liée aux signalement//
-    
-    //Supp les coms signaler//
-    
-    public function delete_comment($supprime)
-    {
-        $db = $this->dbConnect();
-        $req = $db->prepare('DELETE FROM comments WHERE id = ?');
-        $req->execute(array($supprime));
 
-        return $req;
-    }
-    
-    public function get_comment_report()
-    {
-         $db = $this->dbConnect();
-         $req = $db->query('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE signaler = 1');
-         
-         return $req;
-    }
 
 
     private function dbConnect()

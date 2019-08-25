@@ -18,15 +18,7 @@ class PostManager
     }
     
     
-    
-    public function deletePost($id_post){
-        $db = $this->dbConnect();
-        $req = $db->prepare('DELETE FROM post WHERE id = ?');
-        $req->execute(array($id_post));
-
-        return $req;
-    }
-
+    //Affichage d'un chapitre complet
     public function getPost($postId)
     {
         $db = $this->dbConnect();
@@ -37,19 +29,8 @@ class PostManager
         return $post;
     }
     
-   
-    
-    public function edit($title,$content,$id_postUpdate)
-   {
-        $db = $this->dbConnect();
-        $req = $db->prepare('UPDATE post SET  title = :title , content = :content WHERE id = :id');
-        $req->execute([
-            'title' => $title,
-            'content' => $content,
-            'id' => $id_postUpdate,
-            ]);
-    }
-    
+       
+    //Signaler un commentaire 
      public function reportComs($id_report)
    {
          $db = $this->dbConnect();
@@ -63,29 +44,6 @@ class PostManager
     
 
         
-    public function add($title,$content)
-    {
-        $db = $this->dbConnect();
-        $ins = $db->prepare('INSERT INTO post (title, content, creation_date) VALUES (?, ?, NOW())');
-        $ins->execute(array($title, $content));
-    
-        
-    }
-    
-    //Fonction de vérification de l'utilisateur
-    public function login($username,$password){
-         $db = $this->dbConnect();
-         $req = $db->prepare('SELECT * FROM users WHERE username = :username  AND password = :password');
-         
-            $req->execute([
-         
-               'username' => $username,
-               'password' => $password,
-         
-               ]);
-            
-            return $req;
-    }
     
     private function dbConnect()
     {

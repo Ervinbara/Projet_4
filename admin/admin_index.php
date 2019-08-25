@@ -17,7 +17,7 @@
     <body>
         <!--Permet de se connecté seulement si on à rentré les bon id -->
         <?php if(!isset($_SESSION['admin']) AND empty($_SESSION['admin'])) : 
-            header('location: login.php');
+            header('location: ../index.php?action=connexion_View');
          endif;
          
          
@@ -26,7 +26,7 @@
         
         <div class="container">
             <ul class="container_admin_content">
-             <li class="admin_content"><a class="btn_admin_choice" href="signaler.php">Gérer les commentaires</a></li><br/>
+             <li class="admin_content"><a class="btn_admin_choice" href="../index.php?action=coms_report_view">Gérer les commentaires</a></li><br/>
              <li class="admin_content"><a class="btn_admin_choice" href="creation_chap.php">Ajouter un nouveau chapitre</a></li><br/>
              <li class="admin_content"><a class="btn_logout" href="logout.php">Deconnexion</a>
             </ul>
