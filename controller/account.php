@@ -10,7 +10,7 @@ function create_account($username,$password){
 }
 
 function logView(){
-    require_once('admin/inscription.php');
+    require_once('admin/user/inscription.php');
 }
 //Fin inscription
 
@@ -23,7 +23,7 @@ function connexion($username,$password){
 }
 
 function connectView(){
-    require_once('admin/login.php');
+    require_once('admin/user/login.php');
 }
 
 //Fin connexion

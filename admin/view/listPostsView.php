@@ -57,7 +57,7 @@
             
             $posts->closeCursor();
             ?>
-            <p>Voir l'ensemble des chapitre <em style="font-size: large"><a href="admin/allpostView.php">ici</a></em></p>
+            <p>Voir l'ensemble des chapitre <em style="font-size: large"><a href="index.php?action=allPost">ici</a></em></p>
             
         </div>
     </section>

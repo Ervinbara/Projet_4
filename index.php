@@ -73,15 +73,25 @@ try {
         }
         
         elseif ($_GET['action'] == 'Viewlog') {
-                    if(isset($_GET['alert']) && $_GET['alert'] == 'valid_account'){
-                        $session_message->setFlash('Compte crée avec succés !','primary');
-                        $session_message->flash();
-                        logView();
-                    }
                     if(isset($_GET['alert']) && $_GET['alert'] == 'missing_field'){
                         $session_message->setFlash('Champs manquant !','warning');
                         $session_message->flash();
                         logView();
+                    }
+                        if(isset($_GET['alert']) && $_GET['alert'] == 'password_wrong'){
+                        $session_message->setFlash('Les mots de passe ne correspondent pas','warning');
+                        $session_message->flash();
+                        logView();
+                    }
+                        if(isset($_GET['alert']) && $_GET['alert'] == 'password_short'){
+                        $session_message->setFlash('Mot de passe trop court','warning');
+                        $session_message->flash();
+                        logView();
+                    }
+                        if(isset($_GET['alert']) && $_GET['alert'] == 'username_unvalaible'){
+                        $session_message->setFlash('Identifiant non conforme','warning');
+                        $session_message->flash();
+                         logView();
                     }
                 
                 else{
@@ -101,6 +111,7 @@ try {
                         $session_message->flash();
                         connectView();
                     }
+
                 
                 else{
                     connectView();
@@ -120,6 +131,19 @@ try {
                     }
                       
                 }
+                
+        elseif ($_GET['action'] == 'modifyPost') {
+                    editView();                      
+                }
+                
+        elseif ($_GET['action'] == 'addPost') {
+                    addchapterView();                      
+                }
+                
+        elseif ($_GET['action'] == 'allPost') {
+                    allPostView();                      
+                }
+        
                 
         elseif ($_GET['action'] == 'addComment') {
             
@@ -241,10 +265,13 @@ try {
                     
                     $username = htmlspecialchars($_POST['username']);
                     $password = htmlspecialchars($_POST['password']);
+                    //$isPasswordCorrect = password_verify($password);
                     connexion($username,$password);
-
+                    
+                    
+                    //$user = $req->fetch();
                     $_SESSION['admin'] = $_POST['username'];
-                    header('location: admin/admin_index.php');
+                    header('location: admin/admin_view/admin_index.php');
  
                      }
                     
@@ -269,9 +296,9 @@ try {
                          if($password == $pass_confirm){
                             // Hachage du mot de passe
                             $pass_hache = password_hash($password, PASSWORD_DEFAULT);
-                            create_account($username,$password);
+                            create_account($username,$pass_hache);
                             echo '<script language="JavaScript" type="text/javascript">
-                            window.location.replace("index.php?action=account&alert=valid_account");
+                            window.location.replace("index.php?action=connexion_View&alert=valid_account");
                             </script>';
                             exit();
                             // Insertion
@@ -279,23 +306,32 @@ try {
                         die('ok');
                         }
                         else{
-                        $error= "Vos mots de passe ne correspondent pas";
+                            echo '<script language="JavaScript" type="text/javascript">
+                            window.location.replace("index.php?action=Viewlog&alert=password_wrong");
+                            </script>';
+                            exit();
                         }
                     }
                     else{
-                    $error= "Le mot de passe doit contenir au moins 3 caractère et moins de 255";
+                            echo '<script language="JavaScript" type="text/javascript">
+                            window.location.replace("index.php?action=Viewlog&alert=password_short");
+                            </script>';
+                            exit();
                     }
             
                 } 
                 else{
-                $error = "Le nom d'utilisateur doit contenir au moins 3 caractère et moins de 255";
+                            echo '<script language="JavaScript" type="text/javascript">
+                            window.location.replace("index.php?action=Viewlog&alert=username_unvalaible");
+                            </script>';
+                            exit();
                 }
 
              }
              else{
                 echo '<script language="JavaScript" type="text/javascript">
-                    window.location.replace("index.php?action=Viewlog&alert=missing_field");
-                    </script>';
+                window.location.replace("index.php?action=Viewlog&alert=missing_field");
+                </script>';
                 exit();
              }
             }

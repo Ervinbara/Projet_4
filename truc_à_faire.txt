@@ -1,0 +1,26 @@
+-Organiser les fonctions par page où elles sont utilisé :
+=> Faire plusieur controllers
+
+
+
+Truc fais et à faire :
+-Htmlspecialchars sur les commentaire posté
+-Tp open classroom sur le compte admin (TP : créez un espace membres)
+
+
+Crée une page d'inscripttion, qui va crée un user(admin), on va haché le mdp, et donc crée un compte
+Lors de la connexion si les identifiant rentré correspondent aux id de l'administrateur alors il aura accès à l'admin
+
+-Pour la création de compte, si le compte qui se connecte n'est pas l'admin on le renvoi sur la page d'accueil, avec un message flash "Bonjour nanani"
+-Faire la page d'incription(Vidéo du ti pd blanc)
+
+
+-Qaudn on appui sur valider l'inscription si les champs sont vide on redirige sur la page, et on affiche un message d'erreur
+
+Crée une fonction pour l'affichage de chaque page, dans différent controllers
+
+-Les info ne sont pas envoyer dans la table users
+
+-Tiny de edit.php ne s'affichent pas bien
+
+-Quand on ajoute un chapitre, on est redirigé sur la même page mais avec les fonctions de modifications

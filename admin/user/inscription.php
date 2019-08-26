@@ -13,7 +13,7 @@
     <body>
         
         <div class="container login">    
-        <form action="../index.php?action=inscription" method="POST">
+        <form action="index.php?action=inscription" method="POST">
             <input type="text" name="username" placeholder="Identifiant"/><br />
             <input type="password" name="password" placeholder="Mot de passe"/><br />
             <input type="password" name="password_confirm" placeholder="Valider le mot de passe"/><br />

@@ -27,7 +27,7 @@
         <div class="container">
             <ul class="container_admin_content">
              <li class="admin_content"><a class="btn_admin_choice" href="../index.php?action=coms_report_view">Gérer les commentaires</a></li><br/>
-             <li class="admin_content"><a class="btn_admin_choice" href="creation_chap.php">Ajouter un nouveau chapitre</a></li><br/>
+             <li class="admin_content"><a class="btn_admin_choice" href="../index.php?action=addPost">Ajouter un nouveau chapitre</a></li><br/>
              <li class="admin_content"><a class="btn_logout" href="logout.php">Deconnexion</a>
             </ul>
         </div>

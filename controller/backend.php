@@ -2,6 +2,7 @@
 
 // Chargement des classes
 require_once('model/AdminManager.php');
+require_once ('model/PostManager.php');
 
 
 
@@ -12,12 +13,22 @@ function update($title,$content,$id_postUpdate)
 }
 
 
-function viewcommentReport(){
-    
-   $adminManager = new AdminManager();
+function viewcommentReport(){    
+    $adminManager = new AdminManager();
     $comments = $adminManager->get_comment_report();
-    require('admin/signaler.php');
+    require('admin/admin_view/signaler.php');
 }
+
+function editView(){
+    $postManager = new PostManager();
+    $post = $postManager->getPost($_GET['id']);
+    require_once('admin/admin_view/edit.php');
+}
+
+function addchapterView(){
+    require_once('admin/admin_view/creation_chap.php');
+}
+
 
 
 function deletePost($id_post){

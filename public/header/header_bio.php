@@ -12,7 +12,7 @@
                 <h2 class="logo">Biographie</h2>
             </div>
             <div class="header_navbar-menu">
-                <a href="../index.php" class="m-link"><i class="fas fa-home"></i> Accueil</a>
+                <a href="index.php?action=listPost" class="m-link"><i class="fas fa-home"></i> Accueil</a>
             </div>
             <div class="header_navbar_hamburger">
                 <span class="menu_hamburger"></span>

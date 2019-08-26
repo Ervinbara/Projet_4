@@ -49,8 +49,8 @@
             <?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) : ?>
              
              <a class="link_admin" href="index.php?action=supprimePost&amp;id_delete=<?= $post['id'] ?>">Supprimer</a>
-             <a class="link_admin" href="admin/edit.php?id=<?= $post['id'] ?>">Modifier</a>
-             <a class="link_admin" href="admin/admin_index.php">Espace Administration</a>
+             <a class="link_admin" href="index.php?action=modifyPost&amp;id=<?= $post['id'] ?>">Modifier</a>
+             <a class="link_admin" href="index.php?action=connexion_admin">Espace Administration</a>
                 
             <?php endif ?>
                     

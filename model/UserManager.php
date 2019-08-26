@@ -18,11 +18,9 @@ class UserManager
     public function account($username,$password){
         $db = $this->dbConnect();
         
-        $req = $db->prepare('INSERT INTO users(username, password) VALUES(:username, :password');
-        $req->execute([
-        'username' => $username,
-        'password' => $password,
-        ]);
+        $ins = $db->prepare('INSERT INTO users(username, password) VALUES(?,?)');
+        $req = $ins->execute(array($username, $password)); 
+        return $req;    
     }
     
     private function dbConnect()
