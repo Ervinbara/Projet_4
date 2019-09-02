@@ -1,18 +1,14 @@
 <?php
 class UserManager
 {
-    public function login($username,$password){
+    public function login($username){
          $db = $this->dbConnect();
-         $req = $db->prepare('SELECT * FROM users WHERE username = :username  AND password = :password');
-         
-            $req->execute([
-         
-               'username' => $username,
-               'password' => $password,
-         
-               ]);
+            $req = $db->prepare('SELECT id, password FROM users WHERE username = :username');
+            $req->execute(array(
+            'username' => $username));
+            $resultat = $req->fetch();
             
-            return $req;
+            return $resultat;
     }
     
     public function account($username,$password){
@@ -21,6 +17,16 @@ class UserManager
         $ins = $db->prepare('INSERT INTO users(username, password) VALUES(?,?)');
         $req = $ins->execute(array($username, $password)); 
         return $req;    
+    }
+    
+    
+    public function username_exist($username){
+        $db = $this->dbConnect();
+        $req = $db->prepare("SELECT COUNT(*) FROM users WHERE username = ?");
+        $req->execute(array($username));
+        $user_exist = $req->fetchColumn();
+        return $user_exist;
+        
     }
     
     private function dbConnect()
