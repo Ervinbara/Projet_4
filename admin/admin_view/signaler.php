@@ -1,6 +1,3 @@
-<?php /*session_start();*/
-ob_start();?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,14 +11,6 @@ ob_start();?>
         
     <body>
         <?php
-        if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])){
-            
-        //Appel de la fonction d'affichage des coms signaler
-        
-        //require_once('../model/CommentManager.php');
-        //$CommentManager = new CommentManager();
-        //$comments = $CommentManager->get_comment_report();
-        
         include('public/header/header_admin.php');?>
         <div class="container">
          <h1>Gestion des commentaires</h1>
@@ -40,18 +29,12 @@ ob_start();?>
                  
         <?php
         $comments->closeCursor();
-        }
         
         
-        else
-        {
-            header('location:../index.php');
-        }
         ?>
         </div>
         <div class="container">
-        <li style="list-style: none"><a href="admin/admin_index.php">Retourner à l'accueil admin ?</a></li>
+        <li style="list-style: none"><a href="index.php?action=admin_access">Retourner à l'accueil admin ?</a></li>
         </div>
     </body>
 </html>
-<?php ob_end_flush(); ?>

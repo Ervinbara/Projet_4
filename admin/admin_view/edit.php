@@ -1,5 +1,3 @@
-<?php 
-ob_start();?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +13,7 @@ ob_start();?>
         <title>ADMINISTRATION DU SITE</title>
        
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-        <script type="text/javascript" src="public/tinymce/tinymce.min.js"></script>
+        <script type="text/javascript" src="../public/tinymce/tinymce.min.js"></script>
         <script type="text/javascript">
           tinyMCE.init({
             selector: 'textarea',
@@ -24,10 +22,7 @@ ob_start();?>
     </head>   
     <body>
     <?php include('public/header/header_admin.php');?>
-        <?php
-        if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])){
-        
-        ?>
+
         <div class="container form_modif">    
             <h3>Modifier le chapitre "<?= $post['title'] ?>"</h3>
                 <form action="index.php?action=update_post&amp;postUpdate_id=<?= $post['id'] ?>" method="POST">
@@ -39,18 +34,8 @@ ob_start();?>
         
         
         <ul>
-             <li style="list-style: none"><a href="admin/admin_index.php">Retourner à l'accueil admin ?</a></li>
+             <li style="list-style: none"><a href="index.php?action=admin_access">Retourner à l'accueil admin ?</a></li>
         </ul>
-        
-        <?php
-        }
-        
-        
-        else{
-             header('location:../index.php');
-        }
-        ?>
         
     </body>
 </html>
-<?php ob_end_flush(); ?>

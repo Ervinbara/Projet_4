@@ -1,6 +1,3 @@
-<?php 
-ob_start();?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +13,7 @@ ob_start();?>
         <title>ADMINISTRATION DU SITE</title>
        
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-        <script type="text/javascript" src="public/tinymce/tinymce.min.js"></script>
+        <script type="text/javascript" src="../public/tinymce/tinymce.min.js"></script>
         <script type="text/javascript">
           tinyMCE.init({
             selector: 'textarea',
@@ -25,9 +22,6 @@ ob_start();?>
     </head>
     
     <body>
-        <?php
-       if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])){
-        ?>
       <?php include('public/header/header_admin.php');?>
      <div class="container">
         <form action="index.php?action=add_post" method="POST">
@@ -37,16 +31,10 @@ ob_start();?>
         </form>
      </div>
         
-        <?php if(isset($message)) { echo $message; } ?>
-       <li style="list-style: none"><a href="../admin/admin_index.php">Retourner à l'accueil admin ?</a></li>
+        
+       <li style="list-style: none"><a href="index.php?action=admin_access">Retourner à l'accueil admin ?</a></li>
        
-       <?php
-       }
-       else{
-        header('location:../index.php');
-       }
-        ?>
+
         
     </body>
 </html>
-<?php ob_end_flush(); ?>
