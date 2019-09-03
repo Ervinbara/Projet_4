@@ -15,8 +15,9 @@ ob_start();?>
     <body>
        <div class="container login">
         <h3>CONNEXION</h3>
-       
+            
             <?php
+        //    
         //    if(isset($_POST['username']) AND isset($_POST['password'])){
         //        if(!empty($_POST['username']) AND !empty($_POST['password'])) {
         //            
@@ -25,8 +26,8 @@ ob_start();?>
         //            
         //            require_once('../model/UserManager.php');
         //            $connexion = new UserManager();
-        //            $req = $connexion->login($username,$password);
-        //            
+        //            $req = $connexion->login($username);
+        //            $isPasswordCorrect = password_verify($password, $req['password']);
         //            
         //            $user = $req->fetch();
         //            
@@ -34,11 +35,11 @@ ob_start();?>
         //            //Vérifie si c'est le bon compte sinon on affiche un message d'erreur
         //            if($user) {
         //                $_SESSION['admin'] = $_POST['username'];
-        //                 header('location: ../admin/admin_index.php');
+        //                 header('location: index.php?action=admin_access');
         //            }
         //            
         //            else{
-        //                $error = 'Identifiant ou Mot de passe incorrect';
+        //               $error = 'Identifiant ou Mot de passe incorrect';
         //            }
         //            
         //    }
