@@ -1,4 +1,5 @@
 <?php session_start();?>
+<?php ob_start();?>
 
 <?php ini_set('error_reporting', E_ALL);?>
         <link rel="stylesheet" href="public/css/js.css">
@@ -137,9 +138,6 @@ try {
                         $session_message->flash();
                         connectView();
                     }
-                    
-                    
-
                 
                 else{
                     connectView();
@@ -160,9 +158,10 @@ try {
                       
                 }
                 
-        elseif ($_GET['action'] == 'modifyPost') {
+        elseif ($_GET['action'] == 'modifyPost') {            
                     editView();                      
-                }
+        }   
+            
                 
         elseif ($_GET['action'] == 'addPost') {
                     addchapterView();                      
@@ -176,34 +175,16 @@ try {
                 }
                 
         elseif ($_GET['action'] == 'admin_access') {
-            if($_SESSION){
-           if($_SESSION['username'] == 'admin' AND !empty($_SESSION['username'])){ //username tout seul ça marche
             admin_index_view();
-            }
-            
-            elseif(isset($_SESSION['username']) AND !empty($_SESSION['username'])){
-            header('location:index.php?action=admin_action&alert=connexion_user');                   
-            }
-            }
-            else{
-                echo '<script language="JavaScript" type="text/javascript">
-                window.location.replace("index.php?action=connexion_View");
-                </script>';
-                exit();
-            }
         }
                 
         elseif ($_GET['action'] == 'addComment') {
-            
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment(htmlspecialchars($_GET['id']), htmlspecialchars($_POST['author']), htmlspecialchars($_POST['comment']));
                 }
                 else {
-                    echo '<script language="JavaScript" type="text/javascript">
-                    window.location.replace("index.php?action=post&id="+"' . $_GET['id'] .' &alert=missing_field");
-                    </script>';
-                    exit();	
+                    header('location: index.php?action=post&id=' . $_GET['id'] .' &alert=missing_field');
                 }
             }
             else {
@@ -257,11 +238,7 @@ try {
                 $id_postUpdate = $_GET['report_id'];
                 reportComment($id_postUpdate);
                 $id = $_GET['id_post'];
-                
-                echo '<script language="JavaScript" type="text/javascript">
-                    window.location.replace("index.php?action=post&id="+"' . $id .' &alert=signaler");
-                    </script>';
-                exit();
+                header('location: index.php?action=post&id=' . $id .' &alert=signaler');
                       
             }
             
@@ -276,10 +253,7 @@ try {
                    
                 }
             else {
-                echo '<script language="JavaScript" type="text/javascript">
-               window.location.replace("index.php?action=connexion_View&alert=missing_field");
-               </script>';
-               exit();
+               header('location: index.php?action=connexion_View&alert=missing_field');
             }
             }
 
@@ -306,33 +280,21 @@ try {
                                         }
 
                                     else{
-                                    echo '<script language="JavaScript" type="text/javascript">
-                                    window.location.replace("index.php?action=Viewlog&alert=password_wrong");
-                                    </script>';
-                                    exit();
+                                    header('location: index.php?action=Viewlog&alert=password_wrong');
                                     }
                                     
                                 }
                                 else{
-                                echo '<script language="JavaScript" type="text/javascript">
-                                window.location.replace("index.php?action=Viewlog&alert=password_short");
-                                </script>';
-                                exit();
+                                header('location: index.php?action=Viewlog&alert=password_short');
                                 }
                     }
                     else{
-                    echo '<script language="JavaScript" type="text/javascript">
-                    window.location.replace("index.php?action=Viewlog&alert=username_unvalaible");
-                    </script>';
-                    exit();
+                    header('location: index.php?action=Viewlog&alert=username_unvalaible');
                     }
 
             }
             else{
-            echo '<script language="JavaScript" type="text/javascript">
-            window.location.replace("index.php?action=Viewlog&alert=missing_field");
-            </script>';
-            exit();
+            header('location: index.php?action=Viewlog&alert=missing_field');
             }
         }
     }
@@ -348,3 +310,5 @@ try {
 catch(Exception $e) {
     $errorMessage = $e->getMessage();
 }
+?>
+<?php ob_end_flush();?>
