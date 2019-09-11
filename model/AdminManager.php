@@ -1,5 +1,5 @@
 <?php
-class AdminManager
+class AdminManager extends PostManager
 {
         public function deletePost($id_post){
         $db = $this->dbConnect();
@@ -48,25 +48,10 @@ class AdminManager
     public function get_comment_report()
     {
          $db = $this->dbConnect();
-         $req = $db->query('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE signaler = 1');
-         
+         $req = $db->prepare('SELECT author,id,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE signaler = 1');
+         $req->execute();
          return $req;
     }
 
-    
-    
-    
-        private function dbConnect()
-    {
-         //$host_name = 'db5000149202.hosting-data.io';
-         //$database = 'dbs144387';
-         //$user_name = 'dbu315246';
-         //$password = 'jean_Forteroche_17';
-         //$db = new PDO('mysql:host=db5000149202.hosting-data.io;dbname=dbs144387;charset=utf8', 'dbu315246', 'jean_Forteroche_17');
-         //
-         //return $db;
-           $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
-            return $db;
-    }  
            
 }

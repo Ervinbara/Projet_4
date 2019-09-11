@@ -4,16 +4,16 @@ class PostManager
     public function getPosts()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM post ORDER BY creation_date DESC LIMIT 0, 4');
-
+        $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM post ORDER BY creation_date DESC LIMIT 0, 4');
+        $req->execute();
         return $req;
     }
     
     public function allpostsView()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM post ORDER BY creation_date');
-
+        $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM post ORDER BY creation_date');
+        $req->execute(); 
         return $req;
     }
     
@@ -45,7 +45,7 @@ class PostManager
 
         
     
-    private function dbConnect()
+    protected function dbConnect()
     {
          //$host_name = 'db5000149202.hosting-data.io';
          //$database = 'dbs144387';
