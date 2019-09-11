@@ -10,12 +10,9 @@ function addComment($postId, $author, $comment)
     $commentManager = new CommentManager();
 
     $affectedLines = $commentManager->postComment($postId, $author, $comment);
-      if($affectedLines){                             
-         echo '<script language="JavaScript" type="text/javascript">
-         window.location.replace("index.php?action=post&id="+"' . $_GET['id'] .' &alert=commentaire");
-         </script>';
-         exit();	
-      }
+         if($affectedLines == true){                             
+            header('location: index.php?action=post&id=' . $_GET['id'] .' &alert=commentaire');
+         }
       
 }
 

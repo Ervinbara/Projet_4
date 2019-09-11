@@ -11,7 +11,7 @@ function viewcommentReport(){
     $comments = $adminManager->get_comment_report();
     if($_SESSION){
         if($_SESSION['username'] == 'admin' AND !empty($_SESSION['username'])){
-            require('admin/admin_view/signaler.php');
+            require('allView/admin_view/signaler.php');
         }
         else{
                  header('location: index.php?action=listPosts');
@@ -28,7 +28,7 @@ function editView(){
     $post = $postManager->getPost($_GET['id']);
     if($_SESSION){
         if($_SESSION['username'] == 'admin' AND !empty($_SESSION['username'])){
-            require_once('admin/admin_view/edit.php');
+            require_once('allView/admin_view/edit.php');
          }
         else{
                  header('location: index.php?action=listPosts');
@@ -43,7 +43,7 @@ function editView(){
 function addchapterView(){
     if($_SESSION){
         if($_SESSION['username'] == 'admin' AND !empty($_SESSION['username'])){
-            require_once('admin/admin_view/creation_chap.php');
+            require_once('allView/admin_view/creation_chap.php');
         }
         else{
                  header('location: index.php?action=listPosts');
@@ -57,7 +57,7 @@ function addchapterView(){
 function admin_index_view(){
     if($_SESSION){
         if($_SESSION['username'] == 'admin' AND !empty($_SESSION['username'])){
-            require_once('admin/admin_view/admin_index.php');
+            require_once('allView/admin_view/admin_index.php');
         }
         elseif(isset($_SESSION['username']) AND !empty($_SESSION['username'])){
                  header('location: index.php?action=admin_action&alert=connexion_user');
